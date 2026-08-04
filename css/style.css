@@ -612,3 +612,14 @@ h1, h2, h3, h4 { letter-spacing: 0; }
 .link-suave::after { content: "→"; font-weight: 400; transition: transform .2s var(--ease); }
 .link-suave:hover { color: var(--olive); border-color: var(--olive); }
 .link-suave:hover::after { transform: translateX(4px); }
+
+/* ---------- Fotos flutuantes (entrada lateral + respiração contínua) ---------- */
+.reveal--left  { transform: translate3d(-44px, 0, 0); }
+.reveal--right { transform: translate3d(44px, 0, 0); }
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+.flutua { animation: flutuar 7s ease-in-out infinite; will-change: transform; }
+@media (prefers-reduced-motion: reduce) { .flutua { animation: none; } }

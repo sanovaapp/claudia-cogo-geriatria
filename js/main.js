@@ -130,6 +130,24 @@
   }
 
   /* -----------------------------------------------------------
+     Fotos flutuantes: entrada lateral + respiração contínua
+     ----------------------------------------------------------- */
+  function initFlutuacao() {
+    // entrada: mídias de seções divididas deslizam do seu próprio lado
+    document.querySelectorAll(".split .split__media.reveal").forEach(function (el) {
+      var isFirst = el === el.parentElement.firstElementChild;
+      el.classList.add(isFirst ? "reveal--left" : "reveal--right");
+    });
+    // respiração: cada foto flutua num ritmo levemente diferente
+    var alvos = document.querySelectorAll(".hero__photo, .photo-frame, .about-figure");
+    alvos.forEach(function (el, i) {
+      el.classList.add("flutua");
+      el.style.animationDuration = (6.5 + (i % 3)) + "s";
+      el.style.animationDelay = (i % 4) * 0.8 + "s";
+    });
+  }
+
+  /* -----------------------------------------------------------
      Ano no rodapé
      ----------------------------------------------------------- */
   function initYear() {
@@ -146,6 +164,7 @@
     initForm();
     initCarousel();
     initReveal();
+    initFlutuacao();
     initYear();
   });
 })();
