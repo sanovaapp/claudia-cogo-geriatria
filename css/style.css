@@ -8,21 +8,21 @@
 /* ---------- Tokens de marca ---------- */
 :root {
   /* Paleta oficial (extraída da identidade visual) */
-  --olive:        #494b22;   /* verde-oliva escuro — cor principal */
-  --olive-deep:   #383a19;   /* oliva mais profundo (rodapé/hover) */
-  --olive-soft:   #5c5e30;   /* oliva para textos sobre creme */
-  --sand:         #ece5d3;   /* creme/areia — fundos de seção */
-  --cream:        #f5f1e8;   /* off-white — fundo base */
-  --taupe:        #8a7a6d;   /* marrom-taupe — apoio/neutro */
-  --taupe-soft:   #b7ac9f;   /* taupe claro — bordas/linhas */
-  --gold:         #b99a5f;   /* dourado — títulos, detalhes */
-  --gold-deep:    #9a7d45;   /* dourado escuro — para contraste */
+  --olive:        #47462b;   /* verde-oliva escuro — cor principal */
+  --olive-deep:   #34331f;   /* oliva mais profundo (rodapé/hover) */
+  --olive-soft:   #57562f;   /* oliva para textos sobre creme */
+  --sand:         #eaddca;   /* creme/areia — fundos de seção */
+  --cream:        #f7f2eb;   /* off-white — fundo base */
+  --taupe:        #7f695b;   /* marrom-taupe — apoio/neutro */
+  --taupe-soft:   #c3b5a4;   /* taupe claro — bordas/linhas */
+  --gold:         #d7be99;   /* dourado — títulos, detalhes */
+  --gold-deep:    #8c6239;   /* dourado escuro — para contraste */
 
   /* Texto */
-  --ink:          #2b2c1c;   /* quase-preto quente — corpo */
-  --ink-soft:     #55563f;   /* texto secundário */
-  --on-dark:      #f5f1e8;   /* texto sobre oliva */
-  --on-dark-soft: #d8d2bf;   /* texto secundário sobre oliva */
+  --ink:          #2e2d1e;   /* quase-preto quente — corpo */
+  --ink-soft:     #5b5943;   /* texto secundário */
+  --on-dark:      #f7f2eb;   /* texto sobre oliva */
+  --on-dark-soft: #ddd3c2;   /* texto secundário sobre oliva */
 
   /* WhatsApp */
   --wa:           #25d366;   /* verde WhatsApp (botão flutuante) */
@@ -34,8 +34,8 @@
   --shadow-lg:    0 18px 48px rgba(43, 44, 28, 0.16);
 
   /* Tipografia */
-  --font-serif: "Cormorant Garamond", "Lora", Georgia, "Times New Roman", serif;
-  --font-sans:  "Inter", "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-serif: "Noto Serif Display", "Playfair Display", Georgia, serif;
+  --font-sans:  "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
   /* Métrica */
   --maxw: 1160px;
@@ -108,7 +108,7 @@ p  { margin: 0 0 1.1em; }
 .section-head.center { margin-inline: auto; }
 
 /* Regra decorativa dourada */
-.rule { display: inline-block; width: 64px; height: 3px; border: 0; background: var(--gold); border-radius: 3px; margin: 0 0 1.4rem; }
+.rule { display: inline-block; width: 64px; height: 3px; border: 0; background: linear-gradient(90deg, #fdedc9, #d7be99 45%, #8c6239); border-radius: 3px; margin: 0 0 1.4rem; }
 .center .rule, .rule.mx-auto { margin-inline: auto; }
 
 /* Foco visível (acessibilidade / teclado) */
@@ -163,7 +163,7 @@ p  { margin: 0 0 1.1em; }
 /* ---------- Cabeçalho ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(245, 241, 232, 0.92);
+  background: rgba(247, 242, 235, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--taupe-soft);
@@ -298,7 +298,7 @@ p  { margin: 0 0 1.1em; }
 .card {
   background: var(--surface);
   border: 1px solid var(--taupe-soft);
-  border-radius: var(--radius);
+  border-radius: 26px 26px 26px 8px;
   padding: clamp(1.5rem, 3vw, 2rem);
   box-shadow: var(--shadow);
   transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
@@ -506,3 +506,53 @@ a.card { text-decoration: none; color: inherit; display: block; }
 /* Impede rolagem do corpo com menu aberto (mobile) */
 body.nav-open { overflow: hidden; }
 @media (min-width: 1000px) { body.nav-open { overflow: visible; } }
+
+/* ---------- Refinamentos da identidade (manual da marca) ---------- */
+/* Palavra de destaque no hero em degradê dourado */
+.hero h1 .accent {
+  color: var(--gold-deep);
+  background: linear-gradient(105deg, #b98e54, #8c6239 55%, #6e4b27);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Marca d'água do símbolo — como nas páginas do manual */
+.hero { position: relative; }
+.hero::before {
+  content: ""; position: absolute; pointer-events: none;
+  width: min(56vw, 620px); aspect-ratio: 800 / 923;
+  right: -8%; top: -12%;
+  background: url("../assets/logo/simbolo-oliva.png") center / contain no-repeat;
+  opacity: 0.05;
+}
+.hero .hero__grid { position: relative; z-index: 1; }
+
+.section--olive { position: relative; overflow: hidden; }
+.section--olive::before {
+  content: ""; position: absolute; pointer-events: none;
+  width: min(46vw, 520px); aspect-ratio: 800 / 923;
+  left: -7%; bottom: -28%;
+  background: url("../assets/logo/simbolo-claro.png") center / contain no-repeat;
+  opacity: 0.07;
+}
+.section--olive .wrap { position: relative; z-index: 1; }
+
+.site-footer { position: relative; overflow: hidden; }
+.site-footer::before {
+  content: ""; position: absolute; pointer-events: none;
+  width: 380px; aspect-ratio: 800 / 923;
+  right: -60px; bottom: -140px;
+  background: url("../assets/logo/simbolo-claro.png") center / contain no-repeat;
+  opacity: 0.05;
+}
+.site-footer .wrap { position: relative; z-index: 1; }
+
+/* Selo circular da marca */
+.selo { width: clamp(84px, 10vw, 112px); height: auto; margin-inline: auto; margin-bottom: 1.3rem; }
+
+/* Quote com o mesmo canto assinatura */
+.quote { border-radius: 26px 26px 26px 8px; }
+
+/* Montserrat pede um pouco menos de tracking nos títulos serifados */
+h1, h2, h3, h4 { letter-spacing: 0; }
