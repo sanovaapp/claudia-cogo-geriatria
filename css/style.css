@@ -623,3 +623,22 @@ h1, h2, h3, h4 { letter-spacing: 0; }
 }
 .flutua { animation: flutuar 7s ease-in-out infinite; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .flutua { animation: none; } }
+
+/* ---------- AGI — Avaliação Geriátrica Integral ---------- */
+.agi-grid { display: grid; gap: 1.1rem; margin-top: 2.4rem; }
+@media (min-width: 720px) { .agi-grid { grid-template-columns: 1fr 1fr; gap: 1.3rem 2.2rem; } }
+.agi-item {
+  display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+  align-items: start;
+  padding: 1.1rem 0 1.2rem;
+  border-bottom: 1px solid rgba(195, 181, 164, 0.5);
+}
+.agi-item__num {
+  font-family: var(--font-serif); font-style: italic; font-weight: 500;
+  font-size: 1.9rem; line-height: 1; color: var(--gold);
+  min-width: 2.2rem;
+}
+.agi-item h3 { font-size: 1.18rem; margin-bottom: .25em; }
+.agi-item p { margin: 0; font-size: 1rem; color: var(--ink-soft); }
+.section--olive .agi-item { border-color: rgba(247, 242, 235, 0.16); }
+.section--olive .agi-item p { color: var(--on-dark-soft); }
