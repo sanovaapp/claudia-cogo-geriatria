@@ -597,3 +597,18 @@ h1, h2, h3, h4 { letter-spacing: 0; }
 /* Fotos reais em colunas: recorte 4:5 privilegiando o rosto */
 .photo-tall { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 22%; }
 .hero__photo { object-position: center 26%; }
+
+/* ---------- Convite sutil (hero sem botões) ---------- */
+.hero__convite { margin-top: .4rem; }
+.link-suave {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--font-sans); font-weight: 600; font-size: 1.02rem;
+  letter-spacing: .04em;
+  color: var(--gold-deep); text-decoration: none;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid rgba(140, 98, 57, 0.4);
+  transition: color .2s var(--ease), border-color .2s var(--ease), gap .2s var(--ease);
+}
+.link-suave::after { content: "→"; font-weight: 400; transition: transform .2s var(--ease); }
+.link-suave:hover { color: var(--olive); border-color: var(--olive); }
+.link-suave:hover::after { transform: translateX(4px); }
