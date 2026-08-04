@@ -175,6 +175,7 @@ p  { margin: 0 0 1.1em; }
 
 /* Logo oficial (recortado da prancha de identidade) */
 .brand__img { height: 52px; width: auto; display: block; }
+@media (min-width: 1000px) { .site-header .brand__img { height: 66px; } }
 .site-footer .brand__img { height: 58px; }
 @media (max-width: 420px) { .brand__img { height: 44px; } }
 .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--olive); }
@@ -556,3 +557,23 @@ body.nav-open { overflow: hidden; }
 
 /* Montserrat pede um pouco menos de tracking nos títulos serifados */
 h1, h2, h3, h4 { letter-spacing: 0; }
+
+/* ---------- Logo em destaque + universo da marca ---------- */
+.hero__simbolo { height: 64px; width: auto; margin-bottom: 1.2rem; }
+
+/* Faixa de marca: logotipo grande como no painel da recepção */
+.brand-band { text-align: center; }
+.brand-band__logo { width: min(560px, 78vw); height: auto; margin-inline: auto; }
+.brand-band__quote {
+  font-family: var(--font-serif); font-style: italic;
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+  color: var(--gold); max-width: 34ch; margin: 1.8rem auto 0;
+}
+
+/* Seção do consultório */
+.space__note { font-size: .92rem; color: var(--ink-soft); font-style: italic; margin-top: 1rem; }
+.photo-frame { position: relative; border-radius: 26px 26px 26px 8px; overflow: hidden; box-shadow: var(--shadow-lg); }
+.photo-frame img { width: 100%; display: block; }
+.photo-duo { display: grid; gap: 1.2rem; }
+@media (min-width: 720px) { .photo-duo { grid-template-columns: 1.5fr 1fr; align-items: stretch; } }
+.photo-duo .photo-frame img { height: 100%; object-fit: cover; }
