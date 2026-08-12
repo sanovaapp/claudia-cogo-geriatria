@@ -25,7 +25,7 @@ que pesquisam e agendam pelos pais. Tom desejado: elegante, sóbrio, acolhedor,
    CFM 2.336/2023). Ela **não tem RQE em Geriatria**: nunca escreva "geriatra",
    "médica geriatra" nem "especialista em Geriatria". A palavra Geriatria só aparece
    enquadrada como pós-graduação, sempre com o Einstein citado junto, ou como nome de
-   procedimento (Avaliação Geriátrica Integral). Sem RQE na área, também não se anuncia
+   procedimento (Avaliação Geriátrica Ampla, a AGA; antigo nome AGI não é mais usado). Sem RQE na área, também não se anuncia
    que ela **trata** doenças próprias da especialidade: descreva procedimentos e
    cuidados, não titulação.
    A expressão "NÃO ESPECIALISTA" foi retirada do site por decisão do cliente em
@@ -76,7 +76,7 @@ nunca hex solto:
 |---|---|
 | `index.html` | Home |
 | `sobre.html` | Trajetória, formação, missão e valores |
-| `servicos.html` | 9 serviços, seção da AGI (`#agi`), como funciona |
+| `servicos.html` | 9 serviços, seção da AGA (`#agi`, id histórico), como funciona |
 | `metodo.html` | Aba **Acompanhamentos Especiais**: Método RECOMEÇO 90 |
 | `depoimentos.html` | Depoimentos. **Oculta**: fora dos menus, do sitemap e dos
 buscadores (noindex) até haver depoimentos reais. A seção da home está comentada. |

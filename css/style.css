@@ -78,14 +78,14 @@ h1, h2, h3, h4 {
   margin: 0 0 .5em;
   letter-spacing: .01em;
 }
-h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 500; }
-h2 { font-size: clamp(1.9rem, 4.4vw, 2.9rem); font-weight: 500; }
-h3 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
+h1 { font-size: clamp(1.9rem, 4.6vw, 2.9rem); font-weight: 500; }
+h2 { font-size: clamp(1.55rem, 3.6vw, 2.25rem); font-weight: 500; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); }
 p  { margin: 0 0 1.1em; }
 
 /* ---------- Utilidades ---------- */
 .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.15rem, 4vw, 2.5rem); }
-.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.section { padding-block: clamp(2.4rem, 5.5vw, 4.5rem); }
 .section--sand { background: var(--sand); }
 .section--olive { background: var(--olive); color: var(--on-dark); }
 .section--olive h2, .section--olive h3 { color: var(--on-dark); }
@@ -102,7 +102,7 @@ p  { margin: 0 0 1.1em; }
   margin: 0 0 .9rem;
 }
 .section--olive .eyebrow { color: var(--gold); }
-.lead { font-size: 1.22rem; color: var(--ink-soft); }
+.lead { font-size: 1.08rem; color: var(--ink-soft); }
 .section--olive .lead { color: var(--on-dark-soft); }
 .section-head { max-width: 60ch; }
 .section-head.center { margin-inline: auto; }
@@ -266,16 +266,16 @@ p  { margin: 0 0 1.1em; }
 .hero__content { max-width: 40rem; }
 .hero__tag {
   display: inline-block;
-  font-family: var(--font-sans); font-size: .78rem; font-weight: 700;
-  letter-spacing: .24em; text-transform: uppercase;
+  font-family: var(--font-sans); font-size: .66rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
   color: var(--gold-deep);
   border: 1px solid var(--taupe-soft);
   padding: .45rem 1rem; border-radius: 999px;
   margin-bottom: 1.4rem;
 }
-.hero h1 { color: var(--olive); margin-bottom: .4em; }
+.hero h1 { color: var(--olive); margin-bottom: .4em; font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
 .hero h1 .accent { color: var(--gold-deep); font-style: italic; }
-.hero__lead { font-size: 1.28rem; color: var(--ink-soft); margin-bottom: 1.8rem; max-width: 38ch; }
+.hero__lead { font-size: 1.05rem; color: var(--ink-soft); margin-bottom: 1.5rem; max-width: 34ch; }
 .hero__media { position: relative; }
 .hero__photo {
   width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
@@ -579,7 +579,7 @@ body.nav-open { overflow: hidden; }
 h1, h2, h3, h4 { letter-spacing: 0; }
 
 /* ---------- Logo em destaque + universo da marca ---------- */
-.hero__simbolo { height: 64px; width: auto; margin-bottom: 1.2rem; }
+.hero__simbolo { height: 48px; width: auto; margin-bottom: 1rem; }
 
 /* Faixa de marca: logotipo grande como no painel da recepção */
 .brand-band { text-align: center; }
@@ -678,4 +678,21 @@ h1, h2, h3, h4 { letter-spacing: 0; }
 .links-card__pos {
   font-size: .62rem; font-weight: 500; letter-spacing: .06em;
   color: var(--taupe); margin-bottom: .2rem;
+}
+
+/* ---------- Texto justificado (pedido da cliente) ---------- */
+main p, .footer-about p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto; -webkit-hyphens: auto;
+}
+.section-head.center p, .cta-band p, .hero__badge, figcaption,
+.links-card p, .notice, .space__note { text-align: inherit; hyphens: manual; }
+.center .lead, .cta-band .lead { text-align: center; }
+
+/* ---------- RECOMEÇO em ordem de leitura vertical ---------- */
+/* Duas colunas preenchidas de cima para baixo: R E C O na esquerda,
+   M E Ç O na direita, para o nome se formar sem esforço. */
+@media (min-width: 720px) {
+  #recomeco .agi-grid { grid-auto-flow: column; grid-template-rows: repeat(4, auto); }
 }
