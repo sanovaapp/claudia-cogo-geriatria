@@ -600,7 +600,7 @@ h1, h2, h3, h4 { letter-spacing: 0; }
 
 /* Fotos reais em colunas: recorte 4:5 privilegiando o rosto */
 .photo-tall { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 22%; }
-.hero__photo { object-position: center 26%; }
+.hero__photo { object-position: center 18%; }
 
 /* ---------- Convite sutil (hero sem botões) ---------- */
 .hero__convite { margin-top: .4rem; }
