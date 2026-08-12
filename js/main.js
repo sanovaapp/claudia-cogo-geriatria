@@ -11,7 +11,7 @@
      ----------------------------------------------------------- */
   var CONFIG = {
     // Número no formato internacional, só dígitos: 55 + DDD + número
-    whatsapp: "5527997665757",
+    whatsapp: "5527996205757",
     mensagemPadrao:
       "Olá! Vim pelo site e gostaria de agendar uma consulta com a Dra. Claudia Cogo."
   };

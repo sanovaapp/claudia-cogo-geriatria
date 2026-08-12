@@ -78,6 +78,8 @@ nunca hex solto:
 | `sobre.html` | Trajetória, formação, missão e valores |
 | `servicos.html` | 9 serviços, seção da AGA (`#agi`, id histórico), como funciona |
 | `metodo.html` | Aba **Acompanhamentos Especiais**: Método RECOMEÇO 90 |
+| `recomeco-30.html` | Programa RECOMEÇO 30, primeiro mês após a alta |
+| `acompanhamento-hospitalar.html` | Acompanhamento durante a internação |
 | `depoimentos.html` | Depoimentos. **Oculta**: fora dos menus, do sitemap e dos
 buscadores (noindex) até haver depoimentos reais. A seção da home está comentada. |
 | `contato.html` | WhatsApp, telefone, e-mail, mapa, formulário |
@@ -89,7 +91,7 @@ de **todas** as páginas e acrescente a URL em `sitemap.xml`.
 
 ## Contatos e dados atuais
 
-- WhatsApp e telefone: **(27) 99766-5757** (provisório, confirmar com Bruno)
+- WhatsApp e telefone: **(27) 99620-5757** (provisório, confirmar com Bruno)
 - E-mail: **draclaudiacogo@gmail.com**
 - Instagram: **@draclaudiacogo**
 - Cidade: **Vitória, ES**
@@ -124,8 +126,7 @@ Dra. Claudia.
 - Endereço do consultório: o atual em `contato.html` é **simulação** marcada em
   comentário, junto com o mapa. Substituir quando Bruno enviar o definitivo.
 - Depoimentos reais. Até lá tudo permanece oculto, por decisão do cliente.
-- Horários de atendimento e política de convênios ou particular.
-- Confirmação de telemedicina e atendimento domiciliar (TODO em `servicos.html`).
+- Política de convênios ou particular.
 - Fotos reais do consultório (as atuais são ilustrativas do projeto da marca).
 
 ## Como trabalhar com o Bruno

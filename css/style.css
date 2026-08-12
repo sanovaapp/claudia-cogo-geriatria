@@ -696,3 +696,20 @@ main p, .footer-about p {
 @media (min-width: 720px) {
   #recomeco .agi-grid { grid-auto-flow: column; grid-template-rows: repeat(4, auto); }
 }
+
+/* ---------- Modalidades de atendimento no card de serviço ---------- */
+.modalidades {
+  margin-top: .9rem; padding-top: .7rem;
+  border-top: 1px solid var(--taupe-soft);
+  font-family: var(--font-sans); font-size: .74rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold-deep); text-align: left;
+}
+.card__links { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin-top: .9rem; }
+.card__links .link-suave { font-size: .92rem; }
+
+/* ---------- Legibilidade em faixas escuras ---------- */
+.section--olive .link-suave { color: var(--gold); border-bottom-color: rgba(215, 190, 153, 0.5); }
+.section--olive .link-suave:hover { color: var(--on-dark); border-bottom-color: var(--on-dark); }
+.section--olive .space__note { color: var(--on-dark-soft); }
+.section--olive .notice { background: rgba(247, 242, 235, 0.08); border-color: rgba(215, 190, 153, 0.35); color: var(--on-dark); }
