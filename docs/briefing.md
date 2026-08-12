@@ -1,22 +1,25 @@
-# Briefing — Site Dra. Claudia Cogo · Geriatria
+# Briefing · Site Dra. Claudia Cogo
 
 ## 1. Objetivo
 
-Site institucional para o consultório da Dra. Claudia Cogo, médica geriatra.
+Site institucional para o consultório da Dra. Claudia Cogo, especialista em Clínica Médica
+(RQE 10497) e Medicina Intensiva (RQE 10498), com pós-graduação em Geriatria pelo Hospital
+Israelita Albert Einstein (SP), NÃO ESPECIALISTA. Ela não possui RQE em Geriatria: ver as
+regras de publicidade médica em `CLAUDE.md` antes de escrever qualquer texto.
 Objetivo principal: **gerar agendamentos de consulta via WhatsApp** e transmitir
 credibilidade para quem pesquisa a médica no Google ou chega pelo Instagram.
 
 ## 2. Público-alvo
 
-- **Primário:** filhos e familiares adultos (40–65 anos) que buscam um geriatra
-  para os pais — decidem e agendam a consulta.
+- **Primário:** filhos e familiares adultos (40 a 65 anos) que buscam cuidado médico
+  para os pais. São eles que decidem e agendam a consulta.
 - **Secundário:** pacientes idosos autônomos (65+) que pesquisam por conta própria.
 
 Implicações: linguagem acolhedora e sem jargão médico; letras grandes; caminhos
 de contato muito visíveis; conteúdo que responda "por que meu pai/minha mãe
-precisa de um geriatra?".
+precisa desse acompanhamento?".
 
-## 3. Identidade visual (sugestão inicial — ajustar com materiais da cliente)
+## 3. Identidade visual (sugestão inicial, ajustar com materiais da cliente)
 
 - **Paleta:** verde-petróleo/verde-salvia como cor principal (saúde, calma),
   tons de areia/creme no fundo, um tom de destaque quente (terracota ou âmbar)
@@ -25,7 +28,7 @@ precisa de um geriatra?".
   sans-serif muito legível para o corpo (ex.: Inter, Source Sans 3), via Google Fonts.
 - **Tom das imagens:** fotos reais da médica e do consultório quando disponíveis;
   clima humano e caloroso, não "hospitalar".
-- Logo e cores oficiais serão enviados em `assets/logo/` — se existirem, têm
+- Logo e cores oficiais serão enviados em `assets/logo/`. Se existirem, têm
   prioridade sobre esta sugestão.
 
 ## 4. Páginas e seções
@@ -33,7 +36,7 @@ precisa de um geriatra?".
 ### Home (`index.html`)
 - **Hero:** foto da Dra. Claudia + frase de valor (ex.: "Cuidado médico dedicado
   a quem você mais ama") + botão "Agendar pelo WhatsApp".
-- **O que faz um geriatra:** bloco curto educativo (3–4 parágrafos ou cards).
+- **O que é a Avaliação Geriátrica Integral:** bloco curto educativo (3 ou 4 cards).
 - **Serviços em destaque:** 3–4 cards com link para a página de serviços.
 - **Mini-bio:** foto + 2 parágrafos + link para "Sobre".
 - **Depoimentos:** 2–3 em carrossel ou grade, link para a página completa.
@@ -43,7 +46,7 @@ precisa de um geriatra?".
 - Trajetória da Dra. Claudia: formação, CRM/RQE (placeholder até envio),
   experiência, filosofia de cuidado.
 - Foto profissional em destaque.
-- Bloco "Por que a geriatria" — abordagem humana da especialidade.
+- Bloco "Por que esse cuidado": abordagem humana e integral da pessoa idosa.
 
 ### Serviços (`servicos.html`)
 Cards/seções para (ajustar conforme a cliente confirmar):
@@ -62,11 +65,11 @@ Cada serviço: título, descrição em linguagem leiga (2–3 frases), "para que
 - Nota sobre conformidade: sem promessas de resultado, respeitando o CFM.
 
 ### Contato (`contato.html`)
-- Botão grande de WhatsApp (link `https://wa.me/55XXXXXXXXXXX` — TODO número real)
+- Botão grande de WhatsApp (link `https://wa.me/55XXXXXXXXXXX`, TODO número real)
 - Telefone clicável (`tel:`), e-mail
-- Endereço completo + mapa incorporado (Google Maps embed — TODO endereço real)
+- Endereço completo + mapa incorporado (Google Maps embed, TODO endereço real)
 - Horários de atendimento (TODO)
-- Formulário simples (nome, telefone, mensagem) — pode abrir o WhatsApp com a
+- Formulário simples (nome, telefone, mensagem). Pode abrir o WhatsApp com a
   mensagem preenchida, já que o site é estático
 - Convênios aceitos ou "consulta particular" (TODO confirmar)
 

@@ -1,12 +1,12 @@
 /* =============================================================
-   Dra. Claudia Cogo · Geriatria — scripts do site
+   Dra. Claudia Cogo · scripts do site
    Sem dependências. Vanilla JS.
    ============================================================= */
 (function () {
   "use strict";
 
   /* -----------------------------------------------------------
-     CONFIG — dados de contato (TODO: substituir pelos reais)
+     CONFIG · dados de contato (TODO: substituir pelos reais)
      Centralizado aqui para facilitar a atualização.
      ----------------------------------------------------------- */
   var CONFIG = {

@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # enablement: true — ativa o GitHub Pages do repositório se ainda não estiver ativo
+      # enablement: true ativa o GitHub Pages do repositório se ainda não estiver ativo
       - id: setup
         uses: actions/configure-pages@v5
         with:

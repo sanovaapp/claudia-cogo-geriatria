@@ -1,6 +1,8 @@
-# Site — Dra. Claudia Cogo · Geriatria
+# Site · Dra. Claudia Cogo
 
-Site institucional do consultório da Dra. Claudia Cogo (médica geriatra).
+Site institucional do consultório da Dra. Claudia Cogo, especialista em Clínica Médica
+(RQE 10497) e Medicina Intensiva (RQE 10498), CRM-ES 10090, com pós-graduação em
+Geriatria pelo Hospital Israelita Albert Einstein (SP), NÃO ESPECIALISTA.
 Construído conforme `docs/briefing.md`, seguindo a identidade visual oficial
 (`assets/logo/identidade-visual.webp`): oliva escuro, creme, taupe e dourado,
 com a tagline **Saúde · Prevenção · Longevidade**.
@@ -35,14 +37,14 @@ claudia-cogo-geriatria/
 ## Como atualizar o número de WhatsApp
 
 Todos os botões de WhatsApp são preenchidos pelo `js/main.js`. Edite **um único
-lugar** — a constante `CONFIG.whatsapp` no topo de `js/main.js`:
+lugar**, na constante `CONFIG.whatsapp` no topo de `js/main.js`:
 
 ```js
 whatsapp: "5599999999999", // 55 + DDD + número, só dígitos
 ```
 
 (Os `href` estáticos `https://wa.me/55XXXXXXXXXXX` no HTML servem apenas de
-fallback sem JavaScript — recomendo substituí-los também com um busca-e-troca.)
+fallback sem JavaScript, recomendo substituí-los também com um busca-e-troca.)
 
 ## Pendências de conteúdo (TODO)
 
@@ -75,7 +77,7 @@ Todos os placeholders estão marcados no código com `<!-- TODO: ... -->`.
   HTML semântico, navegação por teclado, `skip-link`, `prefers-reduced-motion`.
 - **SEO:** title/description por página, Open Graph, JSON-LD `Physician`
   na home (atualizar com endereço/telefone reais).
-- **Formulário de contato:** não envia dados a servidor — abre o WhatsApp com
+- **Formulário de contato:** não envia dados a servidor, abre o WhatsApp com
   a mensagem preenchida.
 - **Fontes:** Cormorant Garamond (títulos) + Inter (corpo), via Google Fonts.
 - **Logo:** recriado em HTML/CSS (monograma SVG + tipografia) usando a prancha

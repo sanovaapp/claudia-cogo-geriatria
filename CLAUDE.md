@@ -18,12 +18,18 @@ que pesquisam e agendam pelos pais. Tom desejado: elegante, sóbrio, acolhedor,
    em atributos. Bruno considera o travessão uma marca de texto gerado por IA.
    Use vírgula, dois pontos, parênteses ou reescreva a frase. Para separadores
    técnicos e visuais use o ponto médio (·).
-2. **Credenciais, sempre nesta forma:** Médica · Especialista em Clínica Médica
-   (RQE 10497) e Medicina Intensiva (RQE 10498) · Pós-graduada em Geriatria pelo
-   Hospital Israelita Albert Einstein (SP) · CRM-ES 10090.
-   Ela **não** é geriatra titulada: nunca escreva "médica geriatra" ou "geriatra".
-   Escreva "pós-graduada em Geriatria", e toda vez que a pós for citada, cite o
-   Einstein junto.
+2. **Credenciais, sempre nesta forma:**
+   Especialista em Clínica Médica (RQE 10497) e Medicina Intensiva (RQE 10498) ·
+   CRM-ES 10090. Pós-graduação em Geriatria pelo Hospital Israelita Albert Einstein
+   (SP), NÃO ESPECIALISTA.
+   Ela **não tem RQE em Geriatria**: nunca escreva "geriatra", "médica geriatra"
+   nem "especialista em Geriatria". A palavra Geriatria só pode aparecer enquadrada
+   como pós-graduação, sempre com o Einstein citado junto e seguida da expressão
+   **NÃO ESPECIALISTA em caixa alta**, exigência literal da Resolução CFM 2.336/2023
+   (Art. 13, §1º, alíneas d e e). Escreva a expressão em maiúsculas no próprio HTML,
+   nunca via `text-transform`, para que continue correta se o CSS falhar.
+   Sem RQE na área, também não se anuncia que ela **trata** doenças próprias da
+   especialidade: descreva procedimentos e cuidados, não titulação.
 3. **Conformidade CFM:** nenhuma promessa de resultado, nenhuma garantia de cura,
    nenhum preço, nenhum "antes e depois". Programas são "indicados após avaliação
    individual". Depoimentos existentes são placeholders marcados com TODO.
@@ -83,7 +89,7 @@ de **todas** as páginas e acrescente a URL em `sitemap.xml`.
 ## Contatos e dados atuais
 
 - WhatsApp e telefone: **(27) 99766-5757** (provisório, confirmar com Bruno)
-- E-mail: **claudiacogogeriatria@gmail.com**
+- E-mail: **draclaudiacogo@gmail.com**
 - Instagram: **@draclaudiacogo**
 - Cidade: **Vitória, ES**
 - Crédito no rodapé: **Design por Bruno Ambrosin**
