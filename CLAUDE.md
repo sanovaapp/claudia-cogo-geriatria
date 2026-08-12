@@ -20,19 +20,19 @@ que pesquisam e agendam pelos pais. Tom desejado: elegante, sóbrio, acolhedor,
    técnicos e visuais use o ponto médio (·).
 2. **Credenciais, sempre nesta forma:**
    Especialista em Clínica Médica (RQE 10497) e Medicina Intensiva (RQE 10498) ·
-   CRM-ES 10090. Pós-graduação em Geriatria pelo Hospital Israelita Albert Einstein
-   (SP), NÃO ESPECIALISTA.
-   Ela **não tem RQE em Geriatria**: nunca escreva "geriatra", "médica geriatra"
-   nem "especialista em Geriatria". A palavra Geriatria só pode aparecer enquadrada
-   como pós-graduação, sempre com o Einstein citado junto e seguida da expressão
-   **NÃO ESPECIALISTA em caixa alta**, exigência literal da Resolução CFM 2.336/2023
-   (Art. 13, §1º, alíneas d e e). Escreva a expressão em maiúsculas no próprio HTML,
-   nunca via `text-transform`, para que continue correta se o CSS falhar.
-   Sem RQE na área, também não se anuncia que ela **trata** doenças próprias da
-   especialidade: descreva procedimentos e cuidados, não titulação.
+   CRM-ES 10090. Pós-graduação em Geriatria pelo Hospital Israelita Albert Einstein (SP).
+   Os RQEs **sempre** acompanham a palavra "Especialista" (Art. 4º, II da Resolução
+   CFM 2.336/2023). Ela **não tem RQE em Geriatria**: nunca escreva "geriatra",
+   "médica geriatra" nem "especialista em Geriatria". A palavra Geriatria só aparece
+   enquadrada como pós-graduação, sempre com o Einstein citado junto, ou como nome de
+   procedimento (Avaliação Geriátrica Integral). Sem RQE na área, também não se anuncia
+   que ela **trata** doenças próprias da especialidade: descreva procedimentos e
+   cuidados, não titulação.
+   A expressão "NÃO ESPECIALISTA" foi retirada do site por decisão do cliente em
+   12/08/2026, tomada com ciência da Resolução. **Não reintroduza sem pedido dele.**
 3. **Conformidade CFM:** nenhuma promessa de resultado, nenhuma garantia de cura,
    nenhum preço, nenhum "antes e depois". Programas são "indicados após avaliação
-   individual". Depoimentos existentes são placeholders marcados com TODO.
+   individual".
 4. **Autoridade a reforçar sempre:** a técnica de quem **ainda vive a Medicina
    Intensiva**, lidando diariamente com pacientes graves de alta complexidade,
    agora disponível no consultório. 17 anos de medicina. Preceptora e professora
@@ -78,7 +78,8 @@ nunca hex solto:
 | `sobre.html` | Trajetória, formação, missão e valores |
 | `servicos.html` | 9 serviços, seção da AGI (`#agi`), como funciona |
 | `metodo.html` | Aba **Acompanhamentos Especiais**: Método RECOMEÇO 90 |
-| `depoimentos.html` | Depoimentos (placeholders marcados) |
+| `depoimentos.html` | Depoimentos. **Oculta**: fora dos menus, do sitemap e dos
+buscadores (noindex) até haver depoimentos reais. A seção da home está comentada. |
 | `contato.html` | WhatsApp, telefone, e-mail, mapa, formulário |
 | `links.html` | Página de links para bio do Instagram (noindex) |
 
@@ -122,7 +123,7 @@ Dra. Claudia.
 
 - Endereço do consultório: o atual em `contato.html` é **simulação** marcada em
   comentário, junto com o mapa. Substituir quando Bruno enviar o definitivo.
-- Depoimentos reais (os atuais são placeholders com TODO).
+- Depoimentos reais. Até lá tudo permanece oculto, por decisão do cliente.
 - Horários de atendimento e política de convênios ou particular.
 - Confirmação de telemedicina e atendimento domiciliar (TODO em `servicos.html`).
 - Fotos reais do consultório (as atuais são ilustrativas do projeto da marca).

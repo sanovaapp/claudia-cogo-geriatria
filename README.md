@@ -2,7 +2,7 @@
 
 Site institucional do consultório da Dra. Claudia Cogo, especialista em Clínica Médica
 (RQE 10497) e Medicina Intensiva (RQE 10498), CRM-ES 10090, com pós-graduação em
-Geriatria pelo Hospital Israelita Albert Einstein (SP), NÃO ESPECIALISTA.
+Geriatria pelo Hospital Israelita Albert Einstein (SP).
 Construído conforme `docs/briefing.md`, seguindo a identidade visual oficial
 (`assets/logo/identidade-visual.webp`): oliva escuro, creme, taupe e dourado,
 com a tagline **Saúde · Prevenção · Longevidade**.

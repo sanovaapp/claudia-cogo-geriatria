@@ -4,8 +4,8 @@
 
 Site institucional para o consultório da Dra. Claudia Cogo, especialista em Clínica Médica
 (RQE 10497) e Medicina Intensiva (RQE 10498), com pós-graduação em Geriatria pelo Hospital
-Israelita Albert Einstein (SP), NÃO ESPECIALISTA. Ela não possui RQE em Geriatria: ver as
-regras de publicidade médica em `CLAUDE.md` antes de escrever qualquer texto.
+Israelita Albert Einstein (SP). Ela não possui RQE em Geriatria: ver as regras de
+publicidade médica em `CLAUDE.md` antes de escrever qualquer texto.
 Objetivo principal: **gerar agendamentos de consulta via WhatsApp** e transmitir
 credibilidade para quem pesquisa a médica no Google ou chega pelo Instagram.
 
