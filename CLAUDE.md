@@ -77,7 +77,8 @@ nunca hex solto:
 | `index.html` | Home |
 | `sobre.html` | Trajetória, formação, missão e valores |
 | `servicos.html` | 9 serviços, seção da AGA (`#agi`, id histórico), como funciona |
-| `metodo.html` | Aba **Acompanhamentos Especiais**: Método RECOMEÇO 90 |
+| `acompanhamentos.html` | Aba **Acompanhamentos Especiais**: índice dos três programas |
+| `metodo.html` | Método RECOMEÇO 90 |
 | `recomeco-30.html` | Programa RECOMEÇO 30, primeiro mês após a alta |
 | `acompanhamento-hospitalar.html` | Acompanhamento durante a internação |
 | `depoimentos.html` | Depoimentos. **Oculta**: fora dos menus, do sitemap e dos
