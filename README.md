@@ -21,10 +21,19 @@ e acessar `http://localhost:8000`.
 
 ```
 claudia-cogo-geriatria/
-├── index.html           # Home (hero, serviços, mini-bio, depoimentos, CTA)
+├── index.html           # Home (hero, serviços, mini-bio, CTA)
 ├── sobre.html           # Trajetória e filosofia de cuidado
-├── servicos.html        # 8 serviços com "para quem é indicado"
-├── depoimentos.html     # Grade de depoimentos + nota CFM
+├── servicos.html        # Serviços, "Cinco medidas, uma página", FAQ antes de marcar
+├── acompanhamentos.html # Acompanhamentos Especiais: cirurgião, internação, RECOMEÇO, VIGOR
+├── metodo.html          # RECOMEÇO 90 (doze semanas de construção)
+├── recomeco-120.html    # RECOMEÇO 120 (construção e um mês de consolidação)
+├── recomeco-180.html    # RECOMEÇO 180 (construção e consolidação até seis meses)
+├── recomeco-30.html     # Redirecionamento (programa retirado)
+├── recomeco-60.html     # Redirecionamento (programa retirado)
+├── vigor.html           # Programa VIGOR
+├── para-medicos.html    # Carta aos colegas médicos
+├── acompanhamento-hospitalar.html
+├── depoimentos.html     # Oculta (noindex) até haver depoimentos reais
 ├── contato.html         # WhatsApp, telefone, mapa, formulário
 ├── css/style.css        # Design system da marca (mobile-first, WCAG AA)
 ├── js/main.js           # Menu, formulário→WhatsApp, carrossel, links wa.me
@@ -34,17 +43,20 @@ claudia-cogo-geriatria/
 └── docs/briefing.md     # Especificação completa
 ```
 
-## Como atualizar o número de WhatsApp
+## Telefone único
 
-Todos os botões de WhatsApp são preenchidos pelo `js/main.js`. Edite **um único
-lugar**, na constante `CONFIG.whatsapp` no topo de `js/main.js`:
+O site usa **um único número**, o do consultório: (27) 99620-5757
+(`https://wa.me/5527996205757` e `tel:+5527996205757`). Todos os botões de
+WhatsApp são preenchidos pelo `js/main.js` a partir de `CONFIG.whatsapp`; os
+`href` estáticos no HTML repetem o mesmo número como fallback sem JavaScript.
+Nenhum outro número entra em texto, link, JSON-LD, alt ou comentário.
 
-```js
-whatsapp: "5599999999999", // 55 + DDD + número, só dígitos
-```
+## Linha de cuidado RECOMEÇO e política de oferta
 
-(Os `href` estáticos `https://wa.me/55XXXXXXXXXXX` no HTML servem apenas de
-fallback sem JavaScript, recomendo substituí-los também com um busca-e-troca.)
+RECOMEÇO 90 · 120 · 180 são três durações de uma mesma linha de cuidado (ver
+`CLAUDE.md`). O site **não publica preço nem oferta de programa**: a médica indica o
+programa na consulta, por critério clínico, e a proposta sai por escrito, pelo
+consultório.
 
 ## Pendências de conteúdo (TODO)
 

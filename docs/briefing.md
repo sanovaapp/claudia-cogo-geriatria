@@ -36,10 +36,10 @@ precisa desse acompanhamento?".
 ### Home (`index.html`)
 - **Hero:** foto da Dra. Claudia + frase de valor (ex.: "Cuidado médico dedicado
   a quem você mais ama") + botão "Agendar pelo WhatsApp".
-- **O que é a Avaliação Geriátrica Integral:** bloco curto educativo (3 ou 4 cards).
-- **Serviços em destaque:** 3–4 cards com link para a página de serviços.
+- **O que é a Avaliação Geriátrica Ampla (AGA):** bloco curto educativo (3 ou 4 cards).
+- **Serviços em destaque:** 3 a 4 cards com link para a página de serviços.
 - **Mini-bio:** foto + 2 parágrafos + link para "Sobre".
-- **Depoimentos:** 2–3 em carrossel ou grade, link para a página completa.
+- **Depoimentos:** 2 a 3 em carrossel ou grade, link para a página completa.
 - **Chamada final:** bloco de contato com WhatsApp, telefone e endereço resumido.
 
 ### Sobre (`sobre.html`)
@@ -50,7 +50,7 @@ precisa desse acompanhamento?".
 
 ### Serviços (`servicos.html`)
 Cards/seções para (ajustar conforme a cliente confirmar):
-- Consulta geriátrica ampla (avaliação geriátrica ampla)
+- Consulta médica ampliada e Avaliação Geriátrica Ampla (AGA)
 - Acompanhamento de doenças crônicas (hipertensão, diabetes, etc.)
 - Saúde da memória / avaliação cognitiva (demências, Alzheimer)
 - Prevenção de quedas e fragilidade
@@ -58,10 +58,19 @@ Cards/seções para (ajustar conforme a cliente confirmar):
 - Cuidados paliativos / diretivas antecipadas (se aplicável)
 - Atendimento domiciliar e/ou telemedicina (confirmar se oferece)
 
-Cada serviço: título, descrição em linguagem leiga (2–3 frases), "para quem é indicado".
+Cada serviço: título, descrição em linguagem leiga (2 a 3 frases), "para quem é indicado".
+
+### Acompanhamentos Especiais (`acompanhamentos.html`) e a escada RECOMEÇO
+Definida em 17/09/2026: **RECOMEÇO 90** (doze semanas de construção, `metodo.html`),
+**RECOMEÇO 120** (construção e um mês de consolidação) e **RECOMEÇO 180** (construção
+e consolidação até seis meses), mais o **Programa VIGOR** para quem perde força em
+casa. Os antigos RECOMEÇO 30 e 60 foram retirados. Política: **sem preço, sem oferta
+de programa no site**; a médica indica o programa na consulta e a proposta sai por
+escrito, pelo consultório. Telefone único em todo o site: o do consultório,
+(27) 99620-5757.
 
 ### Depoimentos (`depoimentos.html`)
-- Grade de depoimentos (placeholder com 4–6 exemplos marcados como TODO).
+- Grade de depoimentos (placeholder com 4 a 6 exemplos marcados como TODO).
 - Nota sobre conformidade: sem promessas de resultado, respeitando o CFM.
 
 ### Contato (`contato.html`)

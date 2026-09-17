@@ -22,17 +22,34 @@ que pesquisam e agendam pelos pais. Tom desejado: elegante, sóbrio, acolhedor,
    Especialista em Clínica Médica (RQE 10497) e Medicina Intensiva (RQE 10498) ·
    CRM-ES 10090. Pós-graduação em Geriatria pelo Hospital Israelita Albert Einstein (SP).
    Os RQEs **sempre** acompanham a palavra "Especialista" (Art. 4º, II da Resolução
-   CFM 2.336/2023). Ela **não tem RQE em Geriatria**: nunca escreva "geriatra",
-   "médica geriatra" nem "especialista em Geriatria". A palavra Geriatria só aparece
-   enquadrada como pós-graduação, sempre com o Einstein citado junto, ou como nome de
-   procedimento (Avaliação Geriátrica Ampla, a AGA; antigo nome AGI não é mais usado). Sem RQE na área, também não se anuncia
-   que ela **trata** doenças próprias da especialidade: descreva procedimentos e
-   cuidados, não titulação.
-   A expressão "NÃO ESPECIALISTA" foi retirada do site por decisão do cliente em
-   12/08/2026, tomada com ciência da Resolução. **Não reintroduza sem pedido dele.**
+   CFM 2.336/2023). Ela **não tem RQE em Geriatria**: a formação nessa área aparece
+   apenas na forma "Pós-graduação em Geriatria pelo Hospital Israelita Albert Einstein",
+   sempre com o Einstein citado junto. Nenhuma outra forma de associar a médica à
+   Geriatria é permitida, nem como substantivo, nem como adjetivo, nem como
+   especialidade. A palavra Geriatria também aparece como nome de procedimento
+   (Avaliação Geriátrica Ampla, a AGA; nunca "Integral"; o antigo nome AGI não é mais
+   usado). Sem RQE na área, também não se anuncia que ela **trata** doenças próprias
+   da especialidade: descreva procedimentos e cuidados, não titulação.
+   Uma antiga ressalva de "não especialista" foi retirada do site por decisão do
+   cliente em 12/08/2026, tomada com ciência da Resolução. **Não reintroduza sem
+   pedido dele.**
 3. **Conformidade CFM:** nenhuma promessa de resultado, nenhuma garantia de cura,
-   nenhum preço, nenhum "antes e depois". Programas são "indicados após avaliação
-   individual".
+   nenhum preço, nenhum "antes e depois" de paciente. Linguagem de risco sempre
+   como "está associado a", "aumenta o risco", "estudos sugerem". Programas são
+   "linha de cuidado", indicados pela médica na consulta, por critério clínico; a
+   proposta sai por escrito, pelo consultório. **Sem preço, sem oferta de programa
+   no site:** nada de "compra", "venda", "pacote", "upgrade", "produto", "a partir
+   de", botão de comprar.
+5. **Telefone único em todo o site:** o do consultório, **(27) 99620-5757**
+   (`https://wa.me/5527996205757` e `tel:+5527996205757`). Nenhum outro número em
+   texto, link, JSON-LD, alt, comentário HTML, README ou docs. O número pessoal da
+   médica só circula na carta impressa para colegas, nunca no site.
+6. **Frases oficiais da marca:** gancho "Minha mãe, como sempre conheci." (abre o hero
+   da home; pode alternar com "Meu pai, como sempre conheci." em outra página, nunca
+   as duas juntas); linha de método "Reconquistando a independência, com metas
+   medidas a cada 30 dias." (classe `.linha-metodo`: sob o gancho no hero, sob o nome
+   de cada programa nos cards e no rodapé, sob a marca); tagline
+   "Saúde · Prevenção · Longevidade" (com o logo, no hero e no rodapé).
 4. **Autoridade a reforçar sempre:** a técnica de quem **ainda vive a Medicina
    Intensiva**, lidando diariamente com pacientes graves de alta complexidade,
    agora disponível no consultório. 17 anos de medicina. Preceptora e professora
@@ -76,10 +93,14 @@ nunca hex solto:
 |---|---|
 | `index.html` | Home |
 | `sobre.html` | Trajetória, formação, missão e valores |
-| `servicos.html` | 9 serviços, seção da AGA (`#agi`, id histórico), como funciona |
-| `acompanhamentos.html` | Aba **Acompanhamentos Especiais**: índice dos três programas |
-| `metodo.html` | Método RECOMEÇO 90 |
-| `recomeco-30.html` | Programa RECOMEÇO 30, primeiro mês após a alta |
+| `servicos.html` | Serviços, trio Consultório · Domicílio · Telemedicina no topo, bloco "Cinco medidas, uma página" no card da consulta, seção da AGA (`#agi`, id histórico), FAQ "Antes de marcar" (`#perguntas`) antes do agendamento |
+| `acompanhamentos.html` | Aba **Acompanhamentos Especiais**: cirurgião, internação, RECOMEÇO 90 · 120 · 180 e VIGOR |
+| `metodo.html` | **RECOMEÇO 90** (URL histórica mantida): doze semanas de construção, bloco "Cinco medidas, uma página" antes de "Como funciona" |
+| `recomeco-120.html` | RECOMEÇO 120: construção e um mês de consolidação |
+| `recomeco-180.html` | RECOMEÇO 180: construção e consolidação até seis meses |
+| `recomeco-30.html`, `recomeco-60.html` | **Redirecionamentos** (noindex, fora do sitemap e dos menus) para `acompanhamentos.html`. Os programas 30 e 60 foram retirados em 17/09/2026. Não recriar. |
+| `vigor.html` | Programa VIGOR, para quem perde força em casa, sem internação |
+| `para-medicos.html` | Carta aos colegas médicos, tabela por especialidade em `#especialidades` |
 | `acompanhamento-hospitalar.html` | Acompanhamento durante a internação |
 | `depoimentos.html` | Depoimentos. **Oculta**: fora dos menus, do sitemap e dos
 buscadores (noindex) até haver depoimentos reais. A seção da home está comentada. |
@@ -92,7 +113,7 @@ de **todas** as páginas e acrescente a URL em `sitemap.xml`.
 
 ## Contatos e dados atuais
 
-- WhatsApp e telefone: **(27) 99620-5757** (provisório, confirmar com Bruno)
+- WhatsApp e telefone do consultório: **(27) 99620-5757** (único número do site, ver regra 5)
 - E-mail: **draclaudiacogo@gmail.com**
 - Instagram: **@draclaudiacogo**
 - Cidade: **Vitória, ES**
@@ -101,33 +122,49 @@ de **todas** as páginas e acrescente a URL em `sitemap.xml`.
 Links de WhatsApp usam `data-wa` e, quando a mensagem for específica,
 `data-wa-msg="..."`. O número fica centralizado em `js/main.js` (`CONFIG.whatsapp`).
 
-## Método RECOMEÇO 90 (o produto principal)
+## A escada RECOMEÇO 90 · 120 · 180 (a linha de cuidado principal)
 
-Acompanhamento médico da transição após a alta hospitalar, de **UTI ou enfermaria**,
-podendo começar ainda durante a internação. Oito frentes (R.E.C.O.M.E.Ç.O), equipe
-liderada pela Dra. Claudia com nutricionista (readequação alimentar semanal),
-fisioterapeuta, educador físico e cuidador quando necessário, além de visitas
-domiciliares conforme o plano. Inclui **desospitalização assistida** com homecare,
-para concluir antibioticoterapia venosa em casa.
+Três durações de uma mesma linha de cuidado, definida em 17/09/2026 (os antigos
+RECOMEÇO 30 e 60 saíram; o VIGOR continua como programa próprio):
 
-Indicadores medidos aos **0, 15, 30, 60 e 90 dias**, e o texto deve sempre deixar
-claro que **é o estado do paciente que define os intervalos** e que o
-acompanhamento segue além dos 90 dias quando a recuperação pedir.
+- **RECOMEÇO 90:** doze semanas de construção. Primeira consulta de uma hora e meia
+  mede o ponto de partida (força da mão, massa muscular, velocidade do passo, sentar
+  e levantar, memória), revisa cada remédio e escreve o plano. A médica coordena a
+  equipe (fisioterapia supervisionada, nutrição, educador físico quando indicado).
+  Retornos presenciais e por vídeo, uma visita em casa e uma reunião com quem cuida.
+  Relatório escrito aos 30, 60 e 90 dias.
+- **RECOMEÇO 120:** as doze semanas e mais um mês de consolidação, com intensidade
+  menor. Reavaliação ampla aos 120 dias e plano de manutenção em casa por escrito.
+- **RECOMEÇO 180:** seis meses. Construção nas primeiras doze semanas e consolidação
+  supervisionada até o sexto mês, com o educador físico à frente e a médica
+  reavaliando a cada 30 dias. Segunda reunião com quem cuida. Relatório mensal.
 
-Existe uma seção "Para colegas médicos" com contrarreferência garantida e o PDF
-`assets/docs/metodo-recomeco-90-apresentacao.pdf`. **Se o conteúdo do método mudar
-na página, o PDF precisa ser regerado junto** (fonte em ambiente de trabalho, gerado
-via Playwright `page.pdf()` a partir de um HTML A4 com a identidade da marca).
+Nomes nos menus e rodapés: "RECOMEÇO 90", "RECOMEÇO 120", "RECOMEÇO 180",
+"Programa VIGOR". Sem contagem de sessões, sem preço, sem horas da médica. Oito
+frentes (R.E.C.O.M.E.Ç.O) e **desospitalização assistida** com homecare continuam
+descritas em `metodo.html`.
+
+O bloco **"Cinco medidas, uma página"** (nome provisório; "Retrato de Partida" ainda
+não foi aprovado) está em `servicos.html` e `metodo.html`. Pode citar o nome do
+aparelho como fato (InBody 270S), nunca "o mais moderno", "o único", "grau clínico".
+As fotos `assets/images/inbody-270s.webp` e `assets/images/dinamometro-dm90.webp`
+ainda não chegaram: o markup das figuras está comentado nas duas páginas e deve ser
+descomentado quando os arquivos entrarem no repositório.
+
+O PDF `assets/docs/metodo-recomeco-90-apresentacao.pdf` descreve a versão anterior
+do método (marcos aos 15, 30, 60 e 90 dias) e **não está mais linkado** em
+`metodo.html`. Só volte a linká-lo depois de regerá-lo com o conteúdo atual.
 
 **Nunca publique preços no site.** A precificação é assunto privado entre Bruno e a
-Dra. Claudia.
+Dra. Claudia. O site apresenta a linha de cuidado; a indicação é feita na consulta
+e a proposta sai por escrito, pelo consultório.
 
 ## Pendências aguardando dados reais do cliente
 
-- Endereço do consultório: o atual em `contato.html` é **simulação** marcada em
-  comentário, junto com o mapa. Substituir quando Bruno enviar o definitivo.
+- Fotos dos aparelhos (balança InBody 270S e dinamômetro) para o bloco "Cinco
+  medidas, uma página".
+- Regerar o PDF de apresentação para colegas com o conteúdo atual do RECOMEÇO 90.
 - Depoimentos reais. Até lá tudo permanece oculto, por decisão do cliente.
-- Política de convênios ou particular.
 - Fotos reais do consultório (as atuais são ilustrativas do projeto da marca).
 
 ## Como trabalhar com o Bruno

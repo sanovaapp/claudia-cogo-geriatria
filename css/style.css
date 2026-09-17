@@ -713,3 +713,54 @@ main p, .footer-about p {
 .section--olive .link-suave:hover { color: var(--on-dark); border-bottom-color: var(--on-dark); }
 .section--olive .space__note { color: var(--on-dark-soft); }
 .section--olive .notice { background: rgba(247, 242, 235, 0.08); border-color: rgba(215, 190, 153, 0.35); color: var(--on-dark); }
+
+/* ---------- Atualização 3: linha de método, escada RECOMEÇO ---------- */
+.card .eyebrow { text-align: left; hyphens: manual; }
+.linha-metodo {
+  font-family: var(--font-serif); font-style: italic; font-weight: 500;
+  font-size: 1.05rem; line-height: 1.4; color: var(--gold-deep);
+  margin: -.2rem 0 1rem; text-align: left; hyphens: manual;
+}
+.hero .linha-metodo { font-size: clamp(1.1rem, 2vw, 1.35rem); margin: 0 0 1.2rem; max-width: 30ch; }
+.card .linha-metodo { font-size: .98rem; margin: -.3rem 0 .8rem; }
+.section--olive .linha-metodo, .site-footer .linha-metodo { color: var(--gold); }
+.footer-about .linha-metodo { font-size: 1rem; margin: .9rem 0 .8rem; max-width: 30ch; }
+
+/* Formatos de atendimento, três itens de peso igual */
+.trio {
+  list-style: none; margin: 1.8rem auto 0; padding: 0;
+  display: grid; gap: .8rem; max-width: 760px;
+}
+@media (min-width: 640px) { .trio { grid-template-columns: repeat(3, 1fr); } }
+.trio li {
+  background: var(--surface); border: 1px solid var(--taupe-soft);
+  border-radius: 26px 26px 26px 8px; padding: 1rem 1.1rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: .35rem;
+}
+.trio svg { width: 28px; height: 28px; color: var(--gold-deep); }
+.trio strong { font-family: var(--font-serif); font-weight: 500; font-size: 1.1rem; color: var(--olive); }
+.trio span { font-size: .9rem; color: var(--ink-soft); line-height: 1.4; }
+
+/* Cinco medidas, uma página */
+.medidas { display: grid; gap: 1.4rem; align-items: start; }
+@media (min-width: 900px) { .medidas--lado { grid-template-columns: 1fr auto; } }
+.medidas__fotos { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 0; }
+.medidas__fotos figure { margin: 0; flex: 0 1 45%; max-width: 200px; }
+.medidas__fotos img {
+  width: 100%; height: auto; display: block;
+  border-radius: 26px 26px 26px 8px; box-shadow: var(--shadow);
+}
+.medidas__fotos figcaption { font-size: .82rem; color: var(--ink-soft); line-height: 1.4; margin-top: .5rem; text-align: left; }
+.card .medidas { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--taupe-soft); }
+.card .medidas__fotos figure { max-width: 160px; }
+
+/* Perguntas antes de marcar */
+.faq { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 1.4rem; }
+@media (min-width: 760px) { .faq { grid-template-columns: 1fr 1fr; gap: 1.6rem 2.4rem; } }
+.faq h3 { font-family: var(--font-serif); font-weight: 500; font-size: 1.2rem; color: var(--olive); margin-bottom: .35em; }
+.faq p { margin: 0; font-size: 1rem; }
+.faq--full { grid-column: 1 / -1; }
+
+/* Apoio à indicação (sem oferta) */
+.apoio-indicacao { font-size: .95rem; color: var(--ink-soft); max-width: 46ch; margin: 1rem auto 0; text-align: center; }
+.section--olive .apoio-indicacao { color: var(--on-dark-soft); }

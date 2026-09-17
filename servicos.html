@@ -60,7 +60,23 @@
           <hr class="rule mx-auto">
           <h1 id="servicos-titulo" style="font-size:clamp(2.2rem,5vw,3.4rem)">Como a Dra. Claudia pode ajudar</h1>
           <p class="lead measure mx-auto">Cada serviço é explicado em linguagem simples, para que você e sua família saibam exatamente o que esperar.</p>
-          <!-- TODO: ajustar a lista final de serviços conforme confirmação da cliente -->
+          <ul class="trio" aria-label="Formatos de atendimento">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg>
+              <strong>Consultório</strong>
+              <span>Núcleo Summavita, Bento Ferreira, Vitória</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+              <strong>Domicílio</strong>
+              <span>Visita domiciliar em Vitória e região</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <strong>Telemedicina</strong>
+              <span>Pela plataforma do consultório, com receita e atestado digitais</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -76,6 +92,25 @@
             <h3>Consulta médica</h3>
             <p>A porta de entrada. A primeira consulta é ampliada, com mais tempo dedicado a conhecer a história de vida, os exames trazidos e todos os medicamentos em uso.</p>
             <p class="service__for"><strong>Para quem é indicado:</strong> quem busca uma avaliação inicial ou uma segunda opinião, com ou sem programa de acompanhamento.</p>
+            <div class="medidas">
+              <div>
+                <h4 style="font-family:var(--font-serif); font-weight:500; font-size:1.3rem; color:var(--olive); margin-bottom:.4em">Cinco medidas, uma página.</h4>
+                <p>No primeiro dia a Dra. Claudia mede e anota, na frente da família: força da mão no dinamômetro, massa muscular e água corporal na balança de bioimpedância (InBody 270S), velocidade do passo, quantas vezes ele senta e levanta em trinta segundos, e um teste curto de memória. A cada 30 dias as mesmas medidas são refeitas, com o mesmo aparelho, e a família recebe a página comparada. É assim que se sabe se o plano está funcionando, sem achismo.</p>
+              </div>
+              <!-- Fotos dos aparelhos: aguardando os arquivos assets/images/inbody-270s.webp (334x900)
+                   e assets/images/dinamometro-dm90.webp (574x959). Descomentar quando estiverem no repositório.
+              <div class="medidas__fotos">
+                <figure>
+                  <img src="assets/images/inbody-270s.webp" alt="Balança de bioimpedância InBody 270S usada no consultório" loading="lazy" width="334" height="900">
+                  <figcaption>Balança de bioimpedância InBody 270S: massa muscular, gordura e água, segmento a segmento.</figcaption>
+                </figure>
+                <figure>
+                  <img src="assets/images/dinamometro-dm90.webp" alt="Dinamômetro digital de preensão manual usado no consultório" loading="lazy" width="574" height="959">
+                  <figcaption>Dinamômetro de preensão manual: a força da mão, em quilos, no mesmo aparelho a cada 30 dias.</figcaption>
+                </figure>
+              </div>
+              -->
+            </div>
             <p class="modalidades">Consultório · Domicílio · Telemedicina</p>
           </article>
 
@@ -100,21 +135,23 @@
             <div class="card__links">
               <a class="link-suave" href="para-medicos.html">Junto com o cirurgião</a>
               <a class="link-suave" href="acompanhamento-hospitalar.html">Durante a internação</a>
-              <a class="link-suave" href="metodo.html">Método RECOMEÇO 90</a>
+              <a class="link-suave" href="metodo.html">RECOMEÇO 90</a>
             </div>
           </article>
 
-          <article class="card reveal" id="recomeco-30">
+          <article class="card reveal" id="recomeco">
             <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 3v6h6"/><path d="M12 7v5l3 3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 6-7"/><path d="M14 8h4v4"/><path d="M3 21h18"/></svg>
             </div>
-            <h3>Programas RECOMEÇO 30 e 60</h3>
-            <p>Um primeiro mês de acompanhamento próximo depois da alta, para organizar o cuidado, tirar as dúvidas que surgem em casa e decidir os próximos passos com clareza. Quando a força ainda não voltou, o RECOMEÇO 60 acrescenta um segundo mês de consolidação, com fisioterapia e nutrição dentro do programa.</p>
-            <p class="service__for"><strong>Para quem é indicado:</strong> quem recebeu alta recentemente e precisa organizar o cuidado (30) ou também recuperar força e independência (60).</p>
+            <h3>RECOMEÇO 90 · 120 · 180</h3>
+            <p class="linha-metodo">Reconquistando a independência, com metas medidas a cada 30 dias.</p>
+            <p>Uma linha de cuidado em três durações para quem saiu do hospital ou da UTI e perdeu força, autonomia ou apetite. O RECOMEÇO 90 são doze semanas de construção; o 120 acrescenta um mês de consolidação; o 180 leva a consolidação supervisionada até o sexto mês. A médica indica a duração na consulta.</p>
+            <p class="service__for"><strong>Para quem é indicado:</strong> quem saiu do hospital mais fraco do que entrou, começou a cair ou a depender de alguém para levantar e tomar banho, ou tem uma cirurgia marcada e quer chegar mais forte.</p>
             <p class="modalidades">Consultório · Domicílio · Telemedicina</p>
             <div class="card__links">
-              <a class="link-suave" href="recomeco-30.html">Programa RECOMEÇO 30</a>
-              <a class="link-suave" href="recomeco-60.html">Programa RECOMEÇO 60</a>
+              <a class="link-suave" href="metodo.html">RECOMEÇO 90</a>
+              <a class="link-suave" href="recomeco-120.html">RECOMEÇO 120</a>
+              <a class="link-suave" href="recomeco-180.html">RECOMEÇO 180</a>
             </div>
           </article>
 
@@ -166,7 +203,7 @@
             <h3>Sarcopenia: força e massa muscular</h3>
             <p>A perda silenciosa de músculo e força que chega com os anos e vai roubando energia, equilíbrio e independência. Tem prevenção e tem tratamento: nutrição, movimento e acompanhamento adequados.</p>
             <p class="service__for"><strong>Para quem é indicado:</strong> quem nota fraqueza, perda de peso involuntária ou dificuldade para levantar da cadeira e subir escadas.</p>
-            <a class="link-suave" href="metodo.html">Conhecer o Método RECOMEÇO 90</a>
+            <a class="link-suave" href="metodo.html">Conhecer o RECOMEÇO 90</a>
             <p class="modalidades">Consultório · Domicílio</p>
           </article>
 
@@ -309,6 +346,39 @@
       </div>
     </section>
 
+    <!-- ===================== PERGUNTAS ANTES DE MARCAR ===================== -->
+    <section class="section" id="perguntas" aria-labelledby="faq-titulo">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Perguntas frequentes</p>
+          <hr class="rule">
+          <h2 id="faq-titulo">Antes de marcar, as respostas que toda família pede</h2>
+        </div>
+        <ul class="faq reveal">
+          <li>
+            <h3>Quanto dura a consulta?</h3>
+            <p>Uma hora e meia. Histórico completo, exame físico, revisão de cada remédio da sacola, e as cinco medidas: massa muscular por bioimpedância, força da mão, velocidade do passo, sentar e levantar, memória. A família participa.</p>
+          </li>
+          <li>
+            <h3>Atende convênio?</h3>
+            <p>Não. A consulta é particular e o consultório emite nota fiscal no mesmo dia para quem quiser pedir reembolso ao plano. Os exames pedidos podem ser feitos pelo convênio.</p>
+          </li>
+          <li>
+            <h3>Tem telemedicina?</h3>
+            <p>Sim, pela plataforma do consultório, com receita e atestado assinados digitalmente. A primeira avaliação de recuperação é presencial, porque as medidas precisam do aparelho; os retornos podem ser por vídeo.</p>
+          </li>
+          <li>
+            <h3>Ele não consegue sair de casa?</h3>
+            <p>A Dra. Claudia faz visita domiciliar em Vitória e região, com agendamento pelo consultório.</p>
+          </li>
+          <li class="faq--full">
+            <h3>Como marcar?</h3>
+            <p>WhatsApp do consultório: <a href="https://wa.me/5527996205757" data-wa>(27) 99620-5757</a>. A secretária responde em horário comercial e confirma dia, horário e o que levar (todos os remédios em uso, exames recentes, lista de quem vai acompanhar).</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- ===================== CTA ===================== -->
     <section class="section section--olive cta-band" aria-labelledby="cta-titulo">
       <div class="wrap reveal">
@@ -332,6 +402,7 @@
           <a class="brand" href="index.html" aria-label="Dra. Claudia Cogo · Página inicial">
             <img class="brand__img" src="assets/logo/logo-horizontal-clara.png" alt="Dra. Claudia Cogo · Saúde, Prevenção e Longevidade" width="1000" height="190">
           </a>
+          <p class="linha-metodo">Reconquistando a independência, com metas medidas a cada 30 dias.</p>
           <p>Especialista em Clínica Médica (RQE 10497) e Medicina Intensiva (RQE 10498). Pós-graduação em Geriatria pelo Hospital Israelita Albert Einstein (SP). Dedicada à saúde, prevenção e longevidade da pessoa idosa, com um cuidado humano e sem pressa.</p>
           <div class="footer-social">
             <a href="https://instagram.com/draclaudiacogo" target="_blank" rel="noopener" aria-label="Instagram da Dra. Claudia Cogo">
@@ -351,9 +422,9 @@
             <li><a href="servicos.html">Serviços</a></li>
             <li><a href="acompanhamentos.html">Acompanhamentos Especiais</a></li>
             <li><a href="acompanhamento-hospitalar.html">Acompanhamento na internação</a></li>
-            <li><a href="recomeco-30.html">Programa RECOMEÇO 30</a></li>
-            <li><a href="recomeco-60.html">Programa RECOMEÇO 60</a></li>
-            <li><a href="metodo.html">Método RECOMEÇO 90</a></li>
+            <li><a href="metodo.html">RECOMEÇO 90</a></li>
+            <li><a href="recomeco-120.html">RECOMEÇO 120</a></li>
+            <li><a href="recomeco-180.html">RECOMEÇO 180</a></li>
             <li><a href="vigor.html">Programa VIGOR</a></li>
             <li><a href="para-medicos.html">Para colegas médicos</a></li>
             <li><a href="contato.html">Contato</a></li>
