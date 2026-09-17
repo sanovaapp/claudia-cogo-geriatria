@@ -14,10 +14,11 @@ que pesquisam e agendam pelos pais. Tom desejado: elegante, sóbrio, acolhedor,
 
 ## Regras inegociáveis de texto
 
-1. **NUNCA use travessões (—) em lugar nenhum**, nem em prosa, nem em títulos, nem
-   em atributos. Bruno considera o travessão uma marca de texto gerado por IA.
-   Use vírgula, dois pontos, parênteses ou reescreva a frase. Para separadores
-   técnicos e visuais use o ponto médio (·).
+1. **Travessões (—):** a proibição foi retirada por Bruno em 17/09/2026. Mesmo
+   assim, prefira vírgula, dois pontos, parênteses ou o ponto médio (·) como
+   separador; o site inteiro está escrito assim. O endereço em `contato.html`
+   ("Av. Cezar Hilal, 505 — sala 11") mantém o travessão de propósito, para bater
+   com o cadastro no Google Meu Negócio.
 2. **Credenciais, sempre nesta forma:**
    Especialista em Clínica Médica (RQE 10497) e Medicina Intensiva (RQE 10498) ·
    CRM-ES 10090. Pós-graduação em Geriatria pelo Hospital Israelita Albert Einstein (SP).
