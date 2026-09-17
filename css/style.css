@@ -747,7 +747,8 @@ main p, .footer-about p {
 .medidas__fotos { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 0; }
 .medidas__fotos figure { margin: 0; flex: 0 1 45%; max-width: 200px; }
 .medidas__fotos img {
-  width: 100%; height: auto; display: block;
+  width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: contain; display: block;
+  background: #fff; padding: .6rem;
   border-radius: 26px 26px 26px 8px; box-shadow: var(--shadow);
 }
 .medidas__fotos figcaption { font-size: .82rem; color: var(--ink-soft); line-height: 1.4; margin-top: .5rem; text-align: left; }

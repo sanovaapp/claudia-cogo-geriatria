@@ -149,12 +149,13 @@ O bloco **"Cinco medidas, uma página"** (nome provisório; "Retrato de Partida"
 não foi aprovado) está em `servicos.html` e `metodo.html`. Pode citar o nome do
 aparelho como fato (InBody 270S), nunca "o mais moderno", "o único", "grau clínico".
 As fotos `assets/images/inbody-270s.webp` e `assets/images/dinamometro-dm90.webp`
-ainda não chegaram: o markup das figuras está comentado nas duas páginas e deve ser
-descomentado quando os arquivos entrarem no repositório.
+são de catálogo, temporárias, e aparecem ao lado do bloco nas duas páginas.
 
-O PDF `assets/docs/metodo-recomeco-90-apresentacao.pdf` descreve a versão anterior
-do método (marcos aos 15, 30, 60 e 90 dias) e **não está mais linkado** em
-`metodo.html`. Só volte a linká-lo depois de regerá-lo com o conteúdo atual.
+PDFs no site: apenas `assets/docs/carta-familias.pdf` (carta às famílias, 2 páginas,
+linkada em `metodo.html` e `acompanhamentos.html`). O antigo
+`metodo-recomeco-90-apresentacao.pdf` foi removido em 17/09/2026 porque descrevia a
+escada anterior. A carta aos colegas em uma página (`carta-medicos-1pag.pdf`) só
+entra no site em versão que traga apenas o telefone do consultório (regra 5).
 
 **Nunca publique preços no site.** A precificação é assunto privado entre Bruno e a
 Dra. Claudia. O site apresenta a linha de cuidado; a indicação é feita na consulta
@@ -162,9 +163,8 @@ e a proposta sai por escrito, pelo consultório.
 
 ## Pendências aguardando dados reais do cliente
 
-- Fotos dos aparelhos (balança InBody 270S e dinamômetro) para o bloco "Cinco
-  medidas, uma página".
-- Regerar o PDF de apresentação para colegas com o conteúdo atual do RECOMEÇO 90.
+- Fotos definitivas dos aparelhos no consultório (as atuais são de catálogo).
+- Carta aos colegas em uma página (PDF) em versão só com o telefone do consultório.
 - Depoimentos reais. Até lá tudo permanece oculto, por decisão do cliente.
 - Fotos reais do consultório (as atuais são ilustrativas do projeto da marca).
 
