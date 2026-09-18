@@ -101,7 +101,7 @@ nunca hex solto:
 | `recomeco-180.html` | RECOMEÇO 180: construção e consolidação até seis meses |
 | `recomeco-30.html`, `recomeco-60.html` | **Redirecionamentos** (noindex, fora do sitemap e dos menus) para `acompanhamentos.html`. Os programas 30 e 60 foram retirados em 17/09/2026. Não recriar. |
 | `vigor.html` | Programa VIGOR, para quem perde força em casa, sem internação |
-| `para-medicos.html` | Carta aos colegas médicos, tabela por especialidade em `#especialidades` |
+| `para-medicos.html` | **Programa ALICERCE** (nome definido em 18/09/2026): acompanhamento junto com o cirurgião, antes, durante e depois da cirurgia. Carta aos colegas médicos, tabela por especialidade em `#especialidades` |
 | `acompanhamento-hospitalar.html` | Acompanhamento durante a internação |
 | `depoimentos.html` | Depoimentos. **Oculta**: fora dos menus, do sitemap e dos
 buscadores (noindex) até haver depoimentos reais. A seção da home está comentada. |
@@ -141,7 +141,9 @@ RECOMEÇO 30 e 60 saíram; o VIGOR continua como programa próprio):
   reavaliando a cada 30 dias. Segunda reunião com quem cuida. Relatório mensal.
 
 Nomes nos menus e rodapés: "RECOMEÇO 90", "RECOMEÇO 120", "RECOMEÇO 180",
-"Programa VIGOR". Sem contagem de sessões, sem preço, sem horas da médica. Oito
+"Programa VIGOR". O acompanhamento junto com o cirurgião (pré, intra e pós-operatório)
+chama-se **Programa ALICERCE**. A consulta de uma hora e meia é **só a primeira**;
+os retornos são mais curtos, e o texto nunca deve sugerir que toda consulta dura isso. Sem contagem de sessões, sem preço, sem horas da médica. Oito
 frentes (R.E.C.O.M.E.Ç.O) e **desospitalização assistida** com homecare continuam
 descritas em `metodo.html`.
 
