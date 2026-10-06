@@ -795,3 +795,8 @@ main p, .footer-about p {
 
 /* Três perguntas na home */
 @media (min-width: 900px) { .faq--3 { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Âncoras internas sob o cabeçalho fixo ---------- */
+/* Ao abrir um link como para-medicos.html#especialidades ou servicos.html#perguntas,
+   o título da seção para abaixo do cabeçalho (84px), em vez de ficar escondido atrás dele. */
+main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
