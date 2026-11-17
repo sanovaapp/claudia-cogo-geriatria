@@ -800,3 +800,7 @@ main p, .footer-about p {
 /* Ao abrir um link como para-medicos.html#especialidades ou servicos.html#perguntas,
    o título da seção para abaixo do cabeçalho (84px), em vez de ficar escondido atrás dele. */
 main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
+
+/* ---------- Links legais no rodapé-bottom ---------- */
+.footer-bottom a { color: var(--on-dark-soft); text-decoration: underline; }
+.footer-bottom a:hover { color: var(--gold); }

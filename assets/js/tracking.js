@@ -6,7 +6,8 @@
 
    Consentimento (LGPD): o Pixel da Meta só carrega DEPOIS que a pessoa
    aceita o aviso de cookies. Antes do aceite, nada é enviado à Meta.
-   A escolha fica guardada (localStorage) e o aviso não reaparece.
+   A escolha fica guardada (localStorage) e pode ser trocada pelo link
+   "Preferências de cookies" no rodapé.
 
    A captura de UTM e a marcação de origem na mensagem do WhatsApp são
    de primeira parte (não vão à Meta, não usam cookie) e funcionam
@@ -21,6 +22,7 @@
   var PIXEL_ID = "1613938263276675";
   var PIXEL_VALIDO = /^[0-9]{6,}$/.test(PIXEL_ID);
   var CONSENT_KEY = "cc_consent_v1"; /* "accepted" | "rejected" */
+  var POLITICA_URL = "/politica-de-privacidade.html";
 
   /* ----------------------------------------------------------------
      1. UTM — captura na chegada e persiste pela sessão (primeira parte)
@@ -33,7 +35,8 @@
       CAMPOS_UTM.forEach(function (chave) {
         var valor = q.get(chave);
         if (valor) {
-          valor = valor.replace(/[^\w .\-]/g, "").slice(0, 60);
+          /* mantém letras (com acento), números, espaço, ponto, hífen e sublinhado */
+          valor = valor.replace(/[^\p{L}\p{N} ._-]/gu, "").slice(0, 60);
           if (valor) sessionStorage.setItem(chave, valor);
         }
       });
@@ -64,7 +67,7 @@
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0";
       n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
       s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
-    }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    }(window, document, "script", "https://connect.facebook.net/pt_BR/fbevents.js");
     window.fbq("init", PIXEL_ID);
     window.fbq("track", "PageView");
   }
@@ -82,7 +85,8 @@
 
   /* ----------------------------------------------------------------
      3. WhatsApp — marca a origem no texto (sempre) e Lead no clique
-        (só se o Pixel já tiver sido consentido e iniciado)
+        (só com consentimento). Segura a navegação na mesma aba por um
+        instante para o evento sair antes de trocar de página.
      ---------------------------------------------------------------- */
   function marcarOrigem(a) {
     var o = origem();
@@ -92,8 +96,6 @@
       var texto = url.searchParams.get("text") || "";
       if (texto.indexOf("[origem:") !== -1) return;
       var novo = texto ? (texto + " [origem: " + o + "]") : ("[origem: " + o + "]");
-      /* Reconstrói a query com %20 para o espaço (não "+"), para o WhatsApp
-         exibir a mensagem igual em qualquer aparelho. Preserva outros params. */
       var partes = [];
       var temText = false;
       url.searchParams.forEach(function (v, k) {
@@ -110,8 +112,18 @@
     var a = (alvo && alvo.closest) ? alvo.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]') : null;
     if (!a) return;
     marcarOrigem(a);
+    if (!pixelIniciado) return;            /* sem consentimento: nada a disparar, navega normal */
     var o = origem();
-    track("Lead", o ? { origem: o } : {});
+    var dados = o ? { origem: o } : {};
+    var novaAba = a.target === "_blank" || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey;
+    if (novaAba || ev.defaultPrevented) { track("Lead", dados); return; }
+    /* mesma aba: segura ~250ms para o beacon sair antes de navegar */
+    ev.preventDefault();
+    var destino = a.href;
+    var foi = false;
+    function navegar() { if (foi) return; foi = true; window.location.href = destino; }
+    track("Lead", dados);
+    setTimeout(navegar, 250);
   }
 
   /* ----------------------------------------------------------------
@@ -128,6 +140,7 @@
       "padding:16px 18px;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;" +
       "font-size:14px;line-height:1.5;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:space-between}" +
       "#cc-cookie p{margin:0;flex:1 1 260px;min-width:220px}" +
+      "#cc-cookie a{color:#8c6239;text-decoration:underline}" +
       "#cc-cookie .cc-acoes{display:flex;gap:10px;flex:0 0 auto}" +
       "#cc-cookie button{font:inherit;font-weight:600;cursor:pointer;border-radius:999px;" +
       "padding:9px 18px;min-height:40px;border:1px solid #8c6239}" +
@@ -145,6 +158,15 @@
     document.body.classList.remove("cc-banner-aberto");
   }
 
+  function aceitar() {
+    guardarConsentimento("accepted"); esconderBanner(); iniciarPixel();
+  }
+  function recusar() {
+    guardarConsentimento("rejected"); esconderBanner();
+    /* se o Pixel já tinha sido aceito nesta página, recarrega para pará-lo */
+    if (pixelIniciado) { try { window.location.reload(); } catch (e) {} }
+  }
+
   function mostrarBanner() {
     if (!PIXEL_VALIDO) return;
     if (document.getElementById("cc-cookie")) return;
@@ -155,20 +177,26 @@
     box.setAttribute("aria-label", "Aviso de cookies");
     box.innerHTML =
       '<p>Usamos um cookie de marketing (Meta) para entender de onde vêm os contatos ' +
-      'e melhorar os anúncios. Nenhum dado de saúde é coletado.</p>' +
+      'e melhorar os anúncios. Nenhum dado de saúde é coletado. ' +
+      '<a href="' + POLITICA_URL + '">Saiba mais</a>.</p>' +
       '<div class="cc-acoes">' +
       '<button type="button" class="cc-nao">Agora não</button>' +
       '<button type="button" class="cc-sim">Aceitar</button>' +
       '</div>';
-    box.querySelector(".cc-sim").addEventListener("click", function () {
-      guardarConsentimento("accepted"); esconderBanner(); iniciarPixel();
-    });
-    box.querySelector(".cc-nao").addEventListener("click", function () {
-      guardarConsentimento("rejected"); esconderBanner();
-    });
+    box.querySelector(".cc-sim").addEventListener("click", aceitar);
+    box.querySelector(".cc-nao").addEventListener("click", recusar);
     document.body.appendChild(box);
     document.body.classList.add("cc-banner-aberto");
     try { document.documentElement.style.setProperty("--cc-lift", (box.offsetHeight + 24) + "px"); } catch (e) {}
+  }
+
+  /* Link "Preferências de cookies" (rodapé) reabre o aviso a qualquer momento */
+  function aoClicarPreferencias(ev) {
+    var alvo = ev.target;
+    var p = (alvo && alvo.closest) ? alvo.closest("[data-cc-prefs]") : null;
+    if (!p) return;
+    ev.preventDefault();
+    mostrarBanner();
   }
 
   /* ----------------------------------------------------------------
@@ -176,6 +204,7 @@
      ---------------------------------------------------------------- */
   capturarUTM();
   document.addEventListener("click", aoClicar, true);
+  document.addEventListener("click", aoClicarPreferencias, false);
 
   var estado = consentimento();
   if (estado === "accepted") {
