@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ===== Rastreamento de marketing (Meta Pixel + UTM) =====
+       Lógica centralizada em /assets/js/tracking.js.
+       Para ativar: definir o ID real em /assets/js/tracking.js (var PIXEL_ID)
+       e descomentar o <noscript> abaixo, trocando __PIXEL_ID__ pelo mesmo ID.
+       Com o placeholder, nada é enviado à Meta. -->
+  <script src="/assets/js/tracking.js"></script>
+  <!-- <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=__PIXEL_ID__&ev=PageView&noscript=1" alt=""></noscript> -->
   <title>RECOMEÇO 120 · Construção e um mês de consolidação</title>
   <meta name="description" content="RECOMEÇO 120: as doze semanas de construção do RECOMEÇO 90 e mais um mês de consolidação, com reavaliação ampla aos 120 dias e plano de manutenção em casa por escrito.">
   <link rel="canonical" href="https://www.claudiacogo.com.br/recomeco-120.html">
