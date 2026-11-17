@@ -2,13 +2,15 @@
    Dra. Claudia Cogo · Rastreamento de marketing
    -------------------------------------------------------------------
    Meta Pixel (PageView + Lead no clique do WhatsApp) e atribuição de
-   origem por UTM. Sem dependências. Vanilla JS.
+   origem por UTM.
 
-   >>> TODO (uma edição só): trocar '__PIXEL_ID__' pelo ID real do Pixel
-       da Meta quando a conta for verificada. Enquanto o ID for o
-       placeholder, NADA é enviado à Meta (o Pixel não inicializa).
-       A captura de UTM e a marcação de origem no WhatsApp funcionam
-       de qualquer forma, pois não dependem da Meta.
+   Consentimento (LGPD): o Pixel da Meta só carrega DEPOIS que a pessoa
+   aceita o aviso de cookies. Antes do aceite, nada é enviado à Meta.
+   A escolha fica guardada (localStorage) e o aviso não reaparece.
+
+   A captura de UTM e a marcação de origem na mensagem do WhatsApp são
+   de primeira parte (não vão à Meta, não usam cookie) e funcionam
+   sempre, com ou sem aceite.
 
    Conformidade: só PageView e Lead. O único dado personalizado é a
    origem (utm_source/utm_campaign). Nenhum dado de saúde é enviado.
@@ -16,13 +18,13 @@
 (function () {
   "use strict";
 
-  /* ID do Pixel. Só ativa com um ID numérico real (o placeholder não). */
-  var PIXEL_ID = "__PIXEL_ID__";
-  var PIXEL_ATIVO = /^[0-9]{6,}$/.test(PIXEL_ID);
+  var PIXEL_ID = "1613938263276675";
+  var PIXEL_VALIDO = /^[0-9]{6,}$/.test(PIXEL_ID);
+  var CONSENT_KEY = "cc_consent_v1"; /* "accepted" | "rejected" */
 
-  /* -----------------------------------------------------------------
-     1. UTM — captura na chegada e persiste pela sessão
-     ----------------------------------------------------------------- */
+  /* ----------------------------------------------------------------
+     1. UTM — captura na chegada e persiste pela sessão (primeira parte)
+     ---------------------------------------------------------------- */
   var CAMPOS_UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
 
   function capturarUTM() {
@@ -31,15 +33,13 @@
       CAMPOS_UTM.forEach(function (chave) {
         var valor = q.get(chave);
         if (valor) {
-          /* limita tamanho e tira caracteres estranhos pra não sujar a mensagem */
           valor = valor.replace(/[^\w .\-]/g, "").slice(0, 60);
           if (valor) sessionStorage.setItem(chave, valor);
         }
       });
-    } catch (e) { /* sessionStorage pode estar bloqueado; segue sem UTM */ }
+    } catch (e) {}
   }
 
-  /* Origem curta e legível: "source/campaign" (ou só "source"). Null sem UTM. */
   function origem() {
     try {
       var s = sessionStorage.getItem("utm_source");
@@ -49,10 +49,14 @@
     } catch (e) { return null; }
   }
 
-  /* -----------------------------------------------------------------
-     2. Meta Pixel — base (só inicializa com ID real)
-     ----------------------------------------------------------------- */
-  if (PIXEL_ATIVO) {
+  /* ----------------------------------------------------------------
+     2. Meta Pixel — só inicia após consentimento
+     ---------------------------------------------------------------- */
+  var pixelIniciado = false;
+
+  function iniciarPixel() {
+    if (pixelIniciado || !PIXEL_VALIDO) return;
+    pixelIniciado = true;
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
@@ -65,22 +69,21 @@
     window.fbq("track", "PageView");
   }
 
-  /* Dispara um evento só se o Pixel estiver ativo. */
   function track(evento, dados) {
-    if (PIXEL_ATIVO && window.fbq) window.fbq("track", evento, dados || {});
+    if (pixelIniciado && window.fbq) window.fbq("track", evento, dados || {});
   }
 
-  /* -----------------------------------------------------------------
-     3. WhatsApp — marca a origem no texto e dispara Lead no clique
-     ----------------------------------------------------------------- */
-  function ehLinkWhatsApp(a) {
-    if (!a || !a.href) return false;
-    var h = a.href;
-    return h.indexOf("wa.me") !== -1 || h.indexOf("api.whatsapp.com") !== -1;
+  function consentimento() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+  function guardarConsentimento(v) {
+    try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
   }
 
-  /* Acrescenta " [origem: x/y]" ao parâmetro text. Cria o text se não houver.
-     Idempotente: não anexa duas vezes. Sem UTM, não mexe no link. */
+  /* ----------------------------------------------------------------
+     3. WhatsApp — marca a origem no texto (sempre) e Lead no clique
+        (só se o Pixel já tiver sido consentido e iniciado)
+     ---------------------------------------------------------------- */
   function marcarOrigem(a) {
     var o = origem();
     if (!o) return;
@@ -88,26 +91,100 @@
       var url = new URL(a.href);
       var texto = url.searchParams.get("text") || "";
       if (texto.indexOf("[origem:") !== -1) return;
-      var marca = "[origem: " + o + "]";
-      url.searchParams.set("text", texto ? (texto + " " + marca) : marca);
-      a.setAttribute("href", url.toString());
-    } catch (e) { /* URL malformada: ignora */ }
+      var novo = texto ? (texto + " [origem: " + o + "]") : ("[origem: " + o + "]");
+      /* Reconstrói a query com %20 para o espaço (não "+"), para o WhatsApp
+         exibir a mensagem igual em qualquer aparelho. Preserva outros params. */
+      var partes = [];
+      var temText = false;
+      url.searchParams.forEach(function (v, k) {
+        if (k === "text") { temText = true; v = novo; }
+        partes.push(k + "=" + encodeURIComponent(v));
+      });
+      if (!temText) partes.push("text=" + encodeURIComponent(novo));
+      a.setAttribute("href", url.origin + url.pathname + "?" + partes.join("&"));
+    } catch (e) {}
   }
 
   function aoClicar(ev) {
     var alvo = ev.target;
     var a = (alvo && alvo.closest) ? alvo.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]') : null;
-    if (!a || !ehLinkWhatsApp(a)) return;
-    marcarOrigem(a);                     /* reescreve o href antes de navegar */
+    if (!a) return;
+    marcarOrigem(a);
     var o = origem();
-    track("Lead", o ? { origem: o } : {}); /* não bloqueia a navegação */
+    track("Lead", o ? { origem: o } : {});
   }
 
-  /* -----------------------------------------------------------------
+  /* ----------------------------------------------------------------
+     4. Aviso de cookies (injetado via JS, sem tocar o CSS do site)
+     ---------------------------------------------------------------- */
+  function injetarEstilo() {
+    if (document.getElementById("cc-cookie-style")) return;
+    var st = document.createElement("style");
+    st.id = "cc-cookie-style";
+    st.textContent =
+      "#cc-cookie{position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;" +
+      "max-width:640px;margin:0 auto;background:#f7f2eb;color:#2e2d1e;" +
+      "border:1px solid #c3b5a4;border-radius:14px;box-shadow:0 10px 40px rgba(43,44,28,.22);" +
+      "padding:16px 18px;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;" +
+      "font-size:14px;line-height:1.5;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:space-between}" +
+      "#cc-cookie p{margin:0;flex:1 1 260px;min-width:220px}" +
+      "#cc-cookie .cc-acoes{display:flex;gap:10px;flex:0 0 auto}" +
+      "#cc-cookie button{font:inherit;font-weight:600;cursor:pointer;border-radius:999px;" +
+      "padding:9px 18px;min-height:40px;border:1px solid #8c6239}" +
+      "#cc-cookie .cc-sim{background:#47462b;color:#f7f2eb;border-color:#47462b}" +
+      "#cc-cookie .cc-nao{background:transparent;color:#5b5943;border-color:#c3b5a4}" +
+      "#cc-cookie .cc-sim:hover{background:#34331f}" +
+      "#cc-cookie .cc-nao:hover{background:#eaddca}" +
+      "body.cc-banner-aberto .wa-float{bottom:var(--cc-lift,150px)!important}";
+    document.head.appendChild(st);
+  }
+
+  function esconderBanner() {
+    var el = document.getElementById("cc-cookie");
+    if (el && el.parentNode) el.parentNode.removeChild(el);
+    document.body.classList.remove("cc-banner-aberto");
+  }
+
+  function mostrarBanner() {
+    if (!PIXEL_VALIDO) return;
+    if (document.getElementById("cc-cookie")) return;
+    injetarEstilo();
+    var box = document.createElement("div");
+    box.id = "cc-cookie";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-label", "Aviso de cookies");
+    box.innerHTML =
+      '<p>Usamos um cookie de marketing (Meta) para entender de onde vêm os contatos ' +
+      'e melhorar os anúncios. Nenhum dado de saúde é coletado.</p>' +
+      '<div class="cc-acoes">' +
+      '<button type="button" class="cc-nao">Agora não</button>' +
+      '<button type="button" class="cc-sim">Aceitar</button>' +
+      '</div>';
+    box.querySelector(".cc-sim").addEventListener("click", function () {
+      guardarConsentimento("accepted"); esconderBanner(); iniciarPixel();
+    });
+    box.querySelector(".cc-nao").addEventListener("click", function () {
+      guardarConsentimento("rejected"); esconderBanner();
+    });
+    document.body.appendChild(box);
+    document.body.classList.add("cc-banner-aberto");
+    try { document.documentElement.style.setProperty("--cc-lift", (box.offsetHeight + 24) + "px"); } catch (e) {}
+  }
+
+  /* ----------------------------------------------------------------
      Inicialização
-     ----------------------------------------------------------------- */
+     ---------------------------------------------------------------- */
   capturarUTM();
-  /* Listener delegado em captura: pega todos os links wa.me, atuais e futuros,
-     e roda antes de qualquer handler de navegação. */
   document.addEventListener("click", aoClicar, true);
+
+  var estado = consentimento();
+  if (estado === "accepted") {
+    iniciarPixel();
+  } else if (estado !== "rejected") {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", mostrarBanner);
+    } else {
+      mostrarBanner();
+    }
+  }
 })();
