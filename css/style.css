@@ -507,8 +507,8 @@ a.card { text-decoration: none; color: inherit; display: block; }
     background: transparent; border: 0; box-shadow: none;
     max-height: none; overflow: visible;
   }
-  .main-nav ul { display: flex; align-items: center; gap: clamp(.55rem, .9vw, .85rem); padding: 0; }
-  .main-nav a { white-space: nowrap; font-size: .86rem; }
+  .main-nav ul { display: flex; align-items: center; gap: .6rem; padding: 0; }
+  .main-nav a { white-space: nowrap; font-size: .82rem; }
   .main-nav li { border: 0; }
   .main-nav a { padding: .4rem 0; min-height: auto; position: relative; }
   .main-nav li:not(.nav-cta) a::after {
@@ -804,3 +804,67 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 /* ---------- Links legais no rodapé-bottom ---------- */
 .footer-bottom a { color: var(--on-dark-soft); text-decoration: underline; }
 .footer-bottom a:hover { color: var(--gold); }
+
+/* ---------- A primeira consulta (bloco de destaque da home) ---------- */
+.consulta { background: var(--cream); }
+.consulta__head { padding-block: clamp(3rem, 7vw, 5rem) clamp(1.2rem, 3vw, 2rem); }
+.consulta__head h2 { max-width: 24ch; margin-inline: auto; }
+
+.passo { padding-block: clamp(2.2rem, 6vw, 4rem); }
+.passo--sand { background: var(--sand); }
+.passo--olive { background: var(--olive); color: var(--on-dark); }
+.passo__grid { display: grid; gap: clamp(1.4rem, 4vw, 3.5rem); align-items: center; }
+.passo__foto {
+  margin: 0; width: 100%; aspect-ratio: 4 / 3; background: #fff;
+  border-radius: 26px 26px 26px 8px; overflow: hidden; box-shadow: var(--shadow-lg);
+}
+.passo__foto img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+.passo__foto--aparelho img { object-fit: contain; object-position: center; padding: 1rem; }
+@media (min-width: 860px) {
+  .passo__grid { grid-template-columns: 1fr 1fr; }
+  .passo__foto { aspect-ratio: 4 / 5; max-width: 430px; justify-self: center; }
+  .passo--inv .passo__foto { order: 2; }
+}
+.passo__num {
+  display: block; font-family: var(--font-serif); font-style: italic; font-weight: 500;
+  font-size: clamp(2.8rem, 6vw, 3.8rem); line-height: 1; color: var(--gold-deep); margin-bottom: .3rem;
+}
+.passo .eyebrow { margin-bottom: .5rem; }
+.passo h3 { font-size: clamp(1.5rem, 3vw, 1.95rem); margin: 0 0 .8em; }
+.passo__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+.passo__lista li { position: relative; padding-left: 1.5rem; line-height: 1.55; }
+.passo__lista li::before {
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: .5rem; height: .5rem; border-radius: 50%; background: var(--gold-deep);
+}
+.passo--olive h3 { color: var(--on-dark); }
+.passo--olive .passo__num, .passo--olive .eyebrow { color: var(--gold); }
+.passo--olive .passo__lista li::before { background: var(--gold); }
+
+.consulta__final { padding-block: clamp(2.2rem, 5vw, 3.2rem) clamp(3rem, 7vw, 4.5rem); text-align: center; }
+.consulta__trazer {
+  font-size: .95rem; color: var(--ink-soft); max-width: 62ch; margin: 0 auto 1.5rem;
+  text-align: center; hyphens: manual;
+}
+.consulta-depois { padding-block: clamp(2rem, 5vw, 3rem); }
+
+/* Vídeo (oculto até haver ID): capa local, YouTube só carrega no clique */
+.consulta__video { max-width: 760px; margin: 2rem auto 0; }
+.consulta__video-btn {
+  position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 0; cursor: pointer;
+  border-radius: 26px 26px 26px 8px; overflow: hidden; box-shadow: var(--shadow-lg); background: var(--olive);
+}
+.consulta__video-btn img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+.consulta__video-play {
+  position: absolute; inset: 0; margin: auto; width: 76px; height: 76px; border-radius: 50%;
+  display: grid; place-items: center; background: rgba(247, 242, 235, .92); color: var(--olive);
+}
+.consulta__video-play svg { width: 34px; height: 34px; margin-left: 4px; }
+.consulta__video iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 26px 26px 26px 8px; display: block; }
+
+/* Menu de desktop com o item "A consulta": o logo já leva para a home,
+   então "Início" some no desktop para tudo caber em uma linha (segue no menu do celular). */
+@media (min-width: 1140px) {
+  .main-nav ul > li:first-child { display: none; }
+}
+.consulta-depois p { hyphens: manual; }

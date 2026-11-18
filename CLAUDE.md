@@ -92,7 +92,7 @@ nunca hex solto:
 
 | Arquivo | Conteúdo |
 |---|---|
-| `index.html` | Home |
+| `index.html` | Home. Logo abaixo do herói fica o bloco **"A primeira consulta"** (`#primeira-consulta`), o destaque principal do site: 5 passos em tópicos com foto (conversa, remédios, exame e testes, bioimpedância em faixa oliva, o que leva para casa). Os programas vêm depois, em um parágrafo com link. Vídeo do bloco fica oculto até preencher `CONFIG.videoPrimeiraConsulta` em `js/main.js`. Texto aprovado em 18/11/2026: não reescrever sem pedido. |
 | `sobre.html` | Trajetória, formação, missão e valores |
 | `servicos.html` | Serviços, trio Consultório · Domicílio · Telemedicina no topo, bloco "Cinco medidas, uma página" no card da consulta, seção da AGA (`#agi`, id histórico), FAQ "Antes de marcar" (`#perguntas`) antes do agendamento |
 | `acompanhamentos.html` | Aba **Acompanhamentos Especiais**: cirurgião, internação, RECOMEÇO 90 · 120 · 180 e VIGOR |

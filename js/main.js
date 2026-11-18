@@ -13,7 +13,10 @@
     // Número no formato internacional, só dígitos: 55 + DDD + número
     whatsapp: "5527996205757",
     mensagemPadrao:
-      "Olá! Vim pelo site e gostaria de agendar uma consulta com a Dra. Claudia Cogo."
+      "Olá! Vim pelo site e gostaria de agendar uma consulta com a Dra. Claudia Cogo.",
+    // Vídeo do bloco "A primeira consulta" na home. Preencher com o ID do YouTube
+    // (o trecho depois de "v=" no link). Vazio = o espaço do vídeo fica oculto.
+    videoPrimeiraConsulta: ""
   };
 
   /* Monta um link wa.me com mensagem opcional */
@@ -148,6 +151,29 @@
   }
 
   /* -----------------------------------------------------------
+     Vídeo da primeira consulta (home): fica oculto sem ID. Com ID,
+     mostra a capa local e só carrega o YouTube, pelo domínio
+     youtube-nocookie.com, quando a pessoa clica.
+     ----------------------------------------------------------- */
+  function initVideoConsulta() {
+    var box = document.getElementById("consulta-video");
+    var id = CONFIG.videoPrimeiraConsulta;
+    if (!box || !/^[\w-]{6,20}$/.test(id || "")) return;
+    box.hidden = false;
+    var btn = box.querySelector(".consulta__video-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var f = document.createElement("iframe");
+      f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+      f.title = "Dra. Claudia Cogo explica a primeira consulta";
+      f.allow = "accelerometer; autoplay; encrypted-media; picture-in-picture";
+      f.allowFullscreen = true;
+      box.innerHTML = "";
+      box.appendChild(f);
+    });
+  }
+
+  /* -----------------------------------------------------------
      Ano no rodapé
      ----------------------------------------------------------- */
   function initYear() {
@@ -165,6 +191,7 @@
     initCarousel();
     initReveal();
     initFlutuacao();
+    initVideoConsulta();
     initYear();
   });
 })();
