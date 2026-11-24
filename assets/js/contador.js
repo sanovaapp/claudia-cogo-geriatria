@@ -6,14 +6,13 @@
    isso, carrega SEMPRE, independente do aviso de cookies e do Pixel
    da Meta (que continua carregando só após o consentimento).
 
-   >>> TODO (uma edição só): trocar "__GOATCOUNTER_CODE__" pelo código
-       (subdomínio) criado em goatcounter.com, por exemplo "claudiacogo"
-       (que vira claudiacogo.goatcounter.com). Enquanto for o
-       placeholder, o contador não carrega e nada é enviado.
+   Conta: draclaudiacogo (painel em https://draclaudiacogo.goatcounter.com).
+   Carrega em https://draclaudiacogo.goatcounter.com/count. Para desligar,
+   voltar o CODE para um placeholder (ex.: "__GOATCOUNTER_CODE__").
    =================================================================== */
 (function () {
   "use strict";
-  var CODE = "__GOATCOUNTER_CODE__";
+  var CODE = "draclaudiacogo";
   if (!/^[a-z0-9-]{2,40}$/.test(CODE)) return; /* placeholder ou inválido: não carrega */
   var s = document.createElement("script");
   s.async = true;
