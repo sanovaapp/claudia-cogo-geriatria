@@ -1,8 +1,8 @@
 /* ===================================================================
    Dra. Claudia Cogo · Rastreamento de marketing
    -------------------------------------------------------------------
-   Meta Pixel (PageView + Lead no clique do WhatsApp) e atribuição de
-   origem por UTM.
+   Meta Pixel (PageView + Lead no clique do WhatsApp), conversão do
+   Google Ads no mesmo clique, e atribuição de origem por UTM.
 
    Consentimento (LGPD): o Pixel da Meta só carrega DEPOIS que a pessoa
    aceita o aviso de cookies. Antes do aceite, nada é enviado à Meta.
@@ -22,6 +22,10 @@
   var PIXEL_ID = "1613938263276675";
   var PIXEL_VALIDO = /^[0-9]{6,}$/.test(PIXEL_ID);
   var CONSENT_KEY = "cc_consent_v1"; /* "accepted" | "rejected" */
+  /* Google Ads (conversão no clique do WhatsApp). Carrega atrás do mesmo
+     consentimento do Pixel. */
+  var GADS_ID = "AW-18581537615";
+  var GADS_CONVERSAO = "AW-18581537615/mmtgCMDH674dEM-Gr5xF";
   var POLITICA_URL = "/politica-de-privacidade.html";
 
   /* ----------------------------------------------------------------
@@ -76,6 +80,27 @@
     if (pixelIniciado && window.fbq) window.fbq("track", evento, dados || {});
   }
 
+  /* Google Ads: carrega o gtag (reusa um gtag existente, se houver) e registra a tag. */
+  var gadsIniciado = false;
+  function iniciarGoogleAds() {
+    if (gadsIniciado) return;
+    gadsIniciado = true;
+    var sc = document.createElement("script");
+    sc.async = true;
+    sc.src = "https://www.googletagmanager.com/gtag/js?id=" + GADS_ID;
+    document.head.appendChild(sc);
+    window.dataLayer = window.dataLayer || [];
+    if (!window.gtag) window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GADS_ID);
+  }
+  function conversaoGoogleAds() {
+    if (gadsIniciado && window.gtag) window.gtag("event", "conversion", { send_to: GADS_CONVERSAO });
+  }
+
+  /* Liga Pixel e Google Ads juntos, no mesmo ponto de consentimento. */
+  function iniciarMarketing() { iniciarPixel(); iniciarGoogleAds(); }
+
   function consentimento() {
     try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
   }
@@ -115,14 +140,15 @@
     if (!pixelIniciado) return;            /* sem consentimento: nada a disparar, navega normal */
     var o = origem();
     var dados = o ? { origem: o } : {};
+    function disparar() { track("Lead", dados); conversaoGoogleAds(); }
     var novaAba = a.target === "_blank" || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey;
-    if (novaAba || ev.defaultPrevented) { track("Lead", dados); return; }
-    /* mesma aba: segura ~250ms para o beacon sair antes de navegar */
+    if (novaAba || ev.defaultPrevented) { disparar(); return; }
+    /* mesma aba: segura ~250ms para os beacons saírem antes de navegar */
     ev.preventDefault();
     var destino = a.href;
     var foi = false;
     function navegar() { if (foi) return; foi = true; window.location.href = destino; }
-    track("Lead", dados);
+    disparar();
     setTimeout(navegar, 250);
   }
 
@@ -159,7 +185,7 @@
   }
 
   function aceitar() {
-    guardarConsentimento("accepted"); esconderBanner(); iniciarPixel();
+    guardarConsentimento("accepted"); esconderBanner(); iniciarMarketing();
   }
   function recusar() {
     guardarConsentimento("rejected"); esconderBanner();
@@ -176,7 +202,7 @@
     box.setAttribute("role", "dialog");
     box.setAttribute("aria-label", "Aviso de cookies");
     box.innerHTML =
-      '<p>Usamos um cookie de marketing (Meta) para entender de onde vêm os contatos ' +
+      '<p>Usamos cookies de marketing (Meta e Google) para entender de onde vêm os contatos ' +
       'e melhorar os anúncios. Nenhum dado de saúde é coletado. ' +
       '<a href="' + POLITICA_URL + '">Saiba mais</a>.</p>' +
       '<div class="cc-acoes">' +
@@ -208,7 +234,7 @@
 
   var estado = consentimento();
   if (estado === "accepted") {
-    iniciarPixel();
+    iniciarMarketing();
   } else if (estado !== "rejected") {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", mostrarBanner);
